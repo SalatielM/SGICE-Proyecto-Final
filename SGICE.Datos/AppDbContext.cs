@@ -11,7 +11,7 @@ namespace SGICE.Datos;
 public class AppDbContext : DbContext
 {
     public const string CadenaConexionPredeterminada = 
-        "Server=.\\SQLEXPRESS;Database=PSGestionActivosDB;Integrated Security=True;TrustServerCertificate=True;";
+        "Server=localhost;Database=PSGestionActivosDB;Integrated Security=True;TrustServerCertificate=True;";
 
     public AppDbContext()
     {
