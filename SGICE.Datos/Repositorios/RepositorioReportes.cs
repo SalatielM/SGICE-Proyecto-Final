@@ -15,6 +15,10 @@ public class RepositorioReportes
 {
     private readonly AppDbContext _context;
 
+    public RepositorioReportes() : this(new AppDbContext())
+    {
+    }
+
     public RepositorioReportes(AppDbContext context)
     {
         _context = context ?? throw new ArgumentNullException(nameof(context));
