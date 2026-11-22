@@ -1,3 +1,5 @@
+using SGICE.Negocio.Seguridad;
+
 namespace SGICE.Presentacion;
 
 static class Program
@@ -8,9 +10,24 @@ static class Program
     [STAThread]
     static void Main()
     {
-        // To customize application configuration such as set high DPI settings or default font,
-        // see https://aka.ms/applicationconfiguration.
         ApplicationConfiguration.Initialize();
-        Application.Run(new Form1());
-    }    
+
+        while (true)
+        {
+            using var login = new FrmLogin();
+            if (login.ShowDialog() == DialogResult.OK)
+            {
+                using var principal = new FrmPrincipal();
+                Application.Run(principal);
+
+                if (SesionActual.ReiniciarSesion)
+                {
+                    SesionActual.ReiniciarSesion = false;
+                    SesionActual.CerrarSesion();
+                    continue;
+                }
+            }
+            break;
+        }
+    }
 }
