@@ -25,9 +25,10 @@ public class TrasladoServicios
     }
 
     /// <summary>
-    /// Valida un detalle individual de traslado.
+    /// Valida un detalle individual de traslado verificando identificadores positivos y que origen y destino difieran.
     /// </summary>
-    private void ValidarDetalle(DetalleTrasladoDTO detalle)
+    /// <param name="detalle">Detalle del traslado a validar.</param>
+    public void ValidarDetalle(DetalleTrasladoDTO detalle)
     {
         if (detalle == null)
             throw new ArgumentNullException(nameof(detalle));

@@ -25,9 +25,10 @@ public class EntradaServicios
     }
 
     /// <summary>
-    /// Valida un elemento individual del detalle de entrada.
+    /// Valida un elemento individual del detalle de entrada comprobando identificador y rango de cantidad.
     /// </summary>
-    private void ValidarDetalle(DetalleEntradaDTO activo)
+    /// <param name="activo">Detalle del activo a validar.</param>
+    public void ValidarDetalle(DetalleEntradaDTO activo)
     {
         if (activo == null)
             throw new ArgumentNullException(nameof(activo));
