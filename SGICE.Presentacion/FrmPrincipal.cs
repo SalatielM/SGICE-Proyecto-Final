@@ -1,3 +1,4 @@
+using SGICE.Entidades.Enums;
 using SGICE.Negocio.Seguridad;
 
 namespace SGICE.Presentacion;
@@ -114,6 +115,12 @@ public partial class FrmPrincipal : Form
         return formulario;
     }
 
+    private void AbrirReporte(TipoReporte tipo)
+    {
+        var frm = AbrirFormulario<FrmReportes>();
+        frm.SeleccionarTipoReporte(tipo);
+    }
+
     #endregion
 
     #region Métodos para Barra de Progreso y Estado
@@ -189,19 +196,39 @@ public partial class FrmPrincipal : Form
         lblStatusFecha.Text = DateTime.Now.ToString("dddd, dd/MM/yyyy - hh:mm:ss tt");
     }
 
-    private void MenuItem_Click(object? sender, EventArgs e)
-    {
-        if (sender is ToolStripMenuItem item)
-        {
-            lblStatusEstado.Text = $"Accediendo a: {item.Text}";
-            MessageBox.Show(
-                $"El módulo '{item.Text}' está en proceso de integración.",
-                "Módulo en Desarrollo",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
-        }
-    }
+    // --- Mantenimientos ---
+    private void ItemCentrosEducativos_Click(object? sender, EventArgs e) => AbrirFormulario<FrmCentrosEducativos>();
+    private void ItemEdificios_Click(object? sender, EventArgs e) => AbrirFormulario<FrmEdificios>();
+    private void ItemUbicaciones_Click(object? sender, EventArgs e) => AbrirFormulario<FrmUbicaciones>();
+    private void ItemCategorias_Click(object? sender, EventArgs e) => AbrirFormulario<FrmCategorias>();
+    private void ItemSubCategorias_Click(object? sender, EventArgs e) => AbrirFormulario<FrmSubCategorias>();
+    private void ItemMarcas_Click(object? sender, EventArgs e) => AbrirFormulario<FrmMarcas>();
+    private void ItemCatalogoActivos_Click(object? sender, EventArgs e) => AbrirFormulario<FrmActivos>();
+    private void ItemProveedores_Click(object? sender, EventArgs e) => AbrirFormulario<FrmProveedores>();
+    private void ItemPersonal_Click(object? sender, EventArgs e) => AbrirFormulario<FrmPersonal>();
+    private void ItemUsuarios_Click(object? sender, EventArgs e) => AbrirFormulario<FrmUsuarios>();
+    private void ItemRoles_Click(object? sender, EventArgs e) => AbrirFormulario<FrmUsuarios>();
 
+    // --- Procesos ---
+    private void ItemEntradaActivos_Click(object? sender, EventArgs e) => AbrirFormulario<FrmEntradas>();
+    private void ItemActivosFisicos_Click(object? sender, EventArgs e) => AbrirFormulario<FrmEntradas>();
+    private void ItemTraslados_Click(object? sender, EventArgs e) => AbrirFormulario<FrmTraslados>();
+    private void ItemPrestamos_Click(object? sender, EventArgs e) => AbrirReporte(TipoReporte.Prestamos);
+    private void ItemDevoluciones_Click(object? sender, EventArgs e) => AbrirReporte(TipoReporte.Devoluciones);
+    private void ItemSolicitudesMantenimiento_Click(object? sender, EventArgs e) => AbrirReporte(TipoReporte.SolicitudMantenimiento);
+    private void ItemMantenimientos_Click(object? sender, EventArgs e) => AbrirReporte(TipoReporte.Mantenimientos);
+    private void ItemSalidasBajas_Click(object? sender, EventArgs e) => AbrirReporte(TipoReporte.Salidas);
+
+    // --- Reportes ---
+    private void ItemRepInventarioGeneral_Click(object? sender, EventArgs e) => AbrirReporte(TipoReporte.ActivosFisicos);
+    private void ItemRepActivosPorCentro_Click(object? sender, EventArgs e) => AbrirReporte(TipoReporte.ActivosFisicos);
+    private void ItemRepActivosPorUbicacion_Click(object? sender, EventArgs e) => AbrirReporte(TipoReporte.ActivosFisicos);
+    private void ItemRepHistorialMantenimiento_Click(object? sender, EventArgs e) => AbrirReporte(TipoReporte.Mantenimientos);
+    private void ItemRepPrestamosDevoluciones_Click(object? sender, EventArgs e) => AbrirReporte(TipoReporte.Prestamos);
+    private void ItemRepBajasActivos_Click(object? sender, EventArgs e) => AbrirReporte(TipoReporte.Salidas);
+    private void ItemRepAuditoria_Click(object? sender, EventArgs e) => AbrirReporte(TipoReporte.Auditoria);
+
+    // --- Sistema y Ayuda ---
     private void ItemCerrarSesion_Click(object? sender, EventArgs e)
     {
         var confirmacion = MessageBox.Show(

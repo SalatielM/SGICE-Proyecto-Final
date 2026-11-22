@@ -122,21 +122,21 @@ partial class FrmPrincipal
         itemCentrosEducativos.Name = "itemCentrosEducativos";
         itemCentrosEducativos.Size = new Size(244, 22);
         itemCentrosEducativos.Text = "Centros Educativos";
-        itemCentrosEducativos.Click += MenuItem_Click;
+        itemCentrosEducativos.Click += ItemCentrosEducativos_Click;
         // 
         // itemEdificios
         // 
         itemEdificios.Name = "itemEdificios";
         itemEdificios.Size = new Size(244, 22);
         itemEdificios.Text = "Edificios";
-        itemEdificios.Click += MenuItem_Click;
+        itemEdificios.Click += ItemEdificios_Click;
         // 
         // itemUbicaciones
         // 
         itemUbicaciones.Name = "itemUbicaciones";
         itemUbicaciones.Size = new Size(244, 22);
         itemUbicaciones.Text = "Ubicaciones";
-        itemUbicaciones.Click += MenuItem_Click;
+        itemUbicaciones.Click += ItemUbicaciones_Click;
         // 
         // sepMantenimientos1
         // 
@@ -148,28 +148,28 @@ partial class FrmPrincipal
         itemCategorias.Name = "itemCategorias";
         itemCategorias.Size = new Size(244, 22);
         itemCategorias.Text = "Categorías";
-        itemCategorias.Click += MenuItem_Click;
+        itemCategorias.Click += ItemCategorias_Click;
         // 
         // itemSubCategorias
         // 
         itemSubCategorias.Name = "itemSubCategorias";
         itemSubCategorias.Size = new Size(244, 22);
         itemSubCategorias.Text = "Subcategorías";
-        itemSubCategorias.Click += MenuItem_Click;
+        itemSubCategorias.Click += ItemSubCategorias_Click;
         // 
         // itemMarcas
         // 
         itemMarcas.Name = "itemMarcas";
         itemMarcas.Size = new Size(244, 22);
         itemMarcas.Text = "Marcas";
-        itemMarcas.Click += MenuItem_Click;
+        itemMarcas.Click += ItemMarcas_Click;
         // 
         // itemCatalogoActivos
         // 
         itemCatalogoActivos.Name = "itemCatalogoActivos";
         itemCatalogoActivos.Size = new Size(244, 22);
         itemCatalogoActivos.Text = "Catálogo de Activos";
-        itemCatalogoActivos.Click += MenuItem_Click;
+        itemCatalogoActivos.Click += ItemCatalogoActivos_Click;
         // 
         // sepMantenimientos2
         // 
@@ -181,14 +181,14 @@ partial class FrmPrincipal
         itemProveedores.Name = "itemProveedores";
         itemProveedores.Size = new Size(244, 22);
         itemProveedores.Text = "Proveedores";
-        itemProveedores.Click += MenuItem_Click;
+        itemProveedores.Click += ItemProveedores_Click;
         // 
         // itemPersonal
         // 
         itemPersonal.Name = "itemPersonal";
         itemPersonal.Size = new Size(244, 22);
         itemPersonal.Text = "Personal Escolar";
-        itemPersonal.Click += MenuItem_Click;
+        itemPersonal.Click += ItemPersonal_Click;
         // 
         // sepMantenimientos3
         // 
@@ -200,14 +200,14 @@ partial class FrmPrincipal
         itemUsuarios.Name = "itemUsuarios";
         itemUsuarios.Size = new Size(244, 22);
         itemUsuarios.Text = "Usuarios del Sistema";
-        itemUsuarios.Click += MenuItem_Click;
+        itemUsuarios.Click += ItemUsuarios_Click;
         // 
         // itemRoles
         // 
         itemRoles.Name = "itemRoles";
         itemRoles.Size = new Size(244, 22);
         itemRoles.Text = "Roles y Permisos";
-        itemRoles.Click += MenuItem_Click;
+        itemRoles.Click += ItemRoles_Click;
         // 
         // menuProcesos
         // 
@@ -234,14 +234,14 @@ partial class FrmPrincipal
         itemEntradaActivos.Name = "itemEntradaActivos";
         itemEntradaActivos.Size = new Size(248, 22);
         itemEntradaActivos.Text = "Entrada de Activos";
-        itemEntradaActivos.Click += MenuItem_Click;
+        itemEntradaActivos.Click += ItemEntradaActivos_Click;
         // 
         // itemActivosFisicos
         // 
         itemActivosFisicos.Name = "itemActivosFisicos";
         itemActivosFisicos.Size = new Size(248, 22);
         itemActivosFisicos.Text = "Activos Físicos y QR";
-        itemActivosFisicos.Click += MenuItem_Click;
+        itemActivosFisicos.Click += ItemActivosFisicos_Click;
         // 
         // sepProcesos1
         // 
@@ -253,14 +253,14 @@ partial class FrmPrincipal
         itemPrestamos.Name = "itemPrestamos";
         itemPrestamos.Size = new Size(248, 22);
         itemPrestamos.Text = "Préstamos de Activos";
-        itemPrestamos.Click += MenuItem_Click;
+        itemPrestamos.Click += ItemPrestamos_Click;
         // 
         // itemDevoluciones
         // 
         itemDevoluciones.Name = "itemDevoluciones";
         itemDevoluciones.Size = new Size(248, 22);
         itemDevoluciones.Text = "Devoluciones de Préstamos";
-        itemDevoluciones.Click += MenuItem_Click;
+        itemDevoluciones.Click += ItemDevoluciones_Click;
         // 
         // sepProcesos2
         // 
@@ -272,21 +272,21 @@ partial class FrmPrincipal
         itemTraslados.Name = "itemTraslados";
         itemTraslados.Size = new Size(248, 22);
         itemTraslados.Text = "Traslado entre Ubicaciones";
-        itemTraslados.Click += MenuItem_Click;
+        itemTraslados.Click += ItemTraslados_Click;
         // 
         // itemSolicitudesMantenimiento
         // 
         itemSolicitudesMantenimiento.Name = "itemSolicitudesMantenimiento";
         itemSolicitudesMantenimiento.Size = new Size(248, 22);
         itemSolicitudesMantenimiento.Text = "Solicitudes de Mantenimiento";
-        itemSolicitudesMantenimiento.Click += MenuItem_Click;
+        itemSolicitudesMantenimiento.Click += ItemSolicitudesMantenimiento_Click;
         // 
         // itemMantenimientos
         // 
         itemMantenimientos.Name = "itemMantenimientos";
         itemMantenimientos.Size = new Size(248, 22);
         itemMantenimientos.Text = "Órdenes de Mantenimiento";
-        itemMantenimientos.Click += MenuItem_Click;
+        itemMantenimientos.Click += ItemMantenimientos_Click;
         // 
         // sepProcesos3
         // 
@@ -298,7 +298,7 @@ partial class FrmPrincipal
         itemSalidasBajas.Name = "itemSalidasBajas";
         itemSalidasBajas.Size = new Size(248, 22);
         itemSalidasBajas.Text = "Salidas y Bajas de Activos";
-        itemSalidasBajas.Click += MenuItem_Click;
+        itemSalidasBajas.Click += ItemSalidasBajas_Click;
         // 
         // menuReportes
         // 
@@ -323,21 +323,21 @@ partial class FrmPrincipal
         itemRepInventarioGeneral.Name = "itemRepInventarioGeneral";
         itemRepInventarioGeneral.Size = new Size(251, 22);
         itemRepInventarioGeneral.Text = "Inventario General de Activos";
-        itemRepInventarioGeneral.Click += MenuItem_Click;
+        itemRepInventarioGeneral.Click += ItemRepInventarioGeneral_Click;
         // 
         // itemRepActivosPorCentro
         // 
         itemRepActivosPorCentro.Name = "itemRepActivosPorCentro";
         itemRepActivosPorCentro.Size = new Size(251, 22);
         itemRepActivosPorCentro.Text = "Activos por Centro Educativo";
-        itemRepActivosPorCentro.Click += MenuItem_Click;
+        itemRepActivosPorCentro.Click += ItemRepActivosPorCentro_Click;
         // 
         // itemRepActivosPorUbicacion
         // 
         itemRepActivosPorUbicacion.Name = "itemRepActivosPorUbicacion";
         itemRepActivosPorUbicacion.Size = new Size(251, 22);
         itemRepActivosPorUbicacion.Text = "Activos por Ubicación";
-        itemRepActivosPorUbicacion.Click += MenuItem_Click;
+        itemRepActivosPorUbicacion.Click += ItemRepActivosPorUbicacion_Click;
         // 
         // sepReportes1
         // 
@@ -349,21 +349,21 @@ partial class FrmPrincipal
         itemRepHistorialMantenimiento.Name = "itemRepHistorialMantenimiento";
         itemRepHistorialMantenimiento.Size = new Size(251, 22);
         itemRepHistorialMantenimiento.Text = "Historial de Mantenimientos";
-        itemRepHistorialMantenimiento.Click += MenuItem_Click;
+        itemRepHistorialMantenimiento.Click += ItemRepHistorialMantenimiento_Click;
         // 
         // itemRepPrestamosDevoluciones
         // 
         itemRepPrestamosDevoluciones.Name = "itemRepPrestamosDevoluciones";
         itemRepPrestamosDevoluciones.Size = new Size(251, 22);
         itemRepPrestamosDevoluciones.Text = "Préstamos y Devoluciones";
-        itemRepPrestamosDevoluciones.Click += MenuItem_Click;
+        itemRepPrestamosDevoluciones.Click += ItemRepPrestamosDevoluciones_Click;
         // 
         // itemRepBajasActivos
         // 
         itemRepBajasActivos.Name = "itemRepBajasActivos";
         itemRepBajasActivos.Size = new Size(251, 22);
         itemRepBajasActivos.Text = "Bajas de Activos";
-        itemRepBajasActivos.Click += MenuItem_Click;
+        itemRepBajasActivos.Click += ItemRepBajasActivos_Click;
         // 
         // sepReportes2
         // 
@@ -375,7 +375,7 @@ partial class FrmPrincipal
         itemRepAuditoria.Name = "itemRepAuditoria";
         itemRepAuditoria.Size = new Size(251, 22);
         itemRepAuditoria.Text = "Bitácora de Auditoría";
-        itemRepAuditoria.Click += MenuItem_Click;
+        itemRepAuditoria.Click += ItemRepAuditoria_Click;
         // 
         // menuSistema
         // 
