@@ -56,7 +56,7 @@ partial class FrmEdificios
         pnlTop.Dock = DockStyle.Top;
         pnlTop.Location = new Point(0, 0);
         pnlTop.Name = "pnlTop";
-        pnlTop.Size = new Size(900, 50);
+        pnlTop.Size = new Size(900, 80);
         pnlTop.TabIndex = 0;
         // 
         // lblTitulo
@@ -64,11 +64,11 @@ partial class FrmEdificios
         lblTitulo.AutoSize = true;
         lblTitulo.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
         lblTitulo.ForeColor = Color.White;
-        lblTitulo.Location = new Point(16, 12);
+        lblTitulo.Location = new Point(292, 24);
         lblTitulo.Name = "lblTitulo";
-        lblTitulo.Size = new Size(207, 25);
+        lblTitulo.Size = new Size(185, 25);
         lblTitulo.TabIndex = 0;
-        lblTitulo.Text = "Catálogo de Edificios";
+        lblTitulo.Text = "Gestion de edificios";
         // 
         // pnlFiltro
         // 
@@ -77,7 +77,7 @@ partial class FrmEdificios
         pnlFiltro.Controls.Add(txtBuscar);
         pnlFiltro.Controls.Add(btnBuscar);
         pnlFiltro.Dock = DockStyle.Top;
-        pnlFiltro.Location = new Point(0, 50);
+        pnlFiltro.Location = new Point(0, 80);
         pnlFiltro.Name = "pnlFiltro";
         pnlFiltro.Padding = new Padding(16, 10, 16, 10);
         pnlFiltro.Size = new Size(900, 46);
@@ -129,10 +129,10 @@ partial class FrmEdificios
         pnlDatos.Controls.Add(btnGuardar);
         pnlDatos.Controls.Add(btnCancelar);
         pnlDatos.Dock = DockStyle.Right;
-        pnlDatos.Location = new Point(570, 96);
+        pnlDatos.Location = new Point(570, 126);
         pnlDatos.Name = "pnlDatos";
         pnlDatos.Padding = new Padding(16);
-        pnlDatos.Size = new Size(330, 465);
+        pnlDatos.Size = new Size(330, 435);
         pnlDatos.TabIndex = 2;
         // 
         // lblCodigo
@@ -142,7 +142,7 @@ partial class FrmEdificios
         lblCodigo.ForeColor = Color.FromArgb(51, 65, 85);
         lblCodigo.Location = new Point(16, 15);
         lblCodigo.Name = "lblCodigo";
-        lblCodigo.Size = new Size(89, 15);
+        lblCodigo.Size = new Size(90, 15);
         lblCodigo.TabIndex = 0;
         lblCodigo.Text = "Código Edificio:";
         // 
@@ -246,9 +246,9 @@ partial class FrmEdificios
         // dgvEdificios
         // 
         dgvEdificios.Dock = DockStyle.Fill;
-        dgvEdificios.Location = new Point(0, 96);
+        dgvEdificios.Location = new Point(0, 126);
         dgvEdificios.Name = "dgvEdificios";
-        dgvEdificios.Size = new Size(570, 465);
+        dgvEdificios.Size = new Size(570, 435);
         dgvEdificios.TabIndex = 3;
         dgvEdificios.SelectionChanged += DgvEdificios_SelectionChanged;
         // 

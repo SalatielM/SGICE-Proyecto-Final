@@ -40,9 +40,11 @@ partial class FrmCentrosEducativos
         cmbDirector = new ComboBox();
         btnGuardar = new Button();
         btnRecargar = new Button();
+        pictureBox1 = new PictureBox();
         ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
         pnlTop.SuspendLayout();
         pnlContenedor.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
         SuspendLayout();
         // 
         // errorProvider
@@ -51,22 +53,23 @@ partial class FrmCentrosEducativos
         // 
         // pnlTop
         // 
-        pnlTop.BackColor = Color.FromArgb(30, 41, 59);
+        pnlTop.BackColor = Color.Purple;
+        pnlTop.Controls.Add(pictureBox1);
         pnlTop.Controls.Add(lblTitulo);
         pnlTop.Dock = DockStyle.Top;
         pnlTop.Location = new Point(0, 0);
         pnlTop.Name = "pnlTop";
-        pnlTop.Size = new Size(720, 50);
+        pnlTop.Size = new Size(720, 85);
         pnlTop.TabIndex = 0;
         // 
         // lblTitulo
         // 
         lblTitulo.AutoSize = true;
-        lblTitulo.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+        lblTitulo.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
         lblTitulo.ForeColor = Color.White;
-        lblTitulo.Location = new Point(16, 12);
+        lblTitulo.Location = new Point(190, 23);
         lblTitulo.Name = "lblTitulo";
-        lblTitulo.Size = new Size(322, 25);
+        lblTitulo.Size = new Size(416, 31);
         lblTitulo.TabIndex = 0;
         lblTitulo.Text = "Información del Centro Educativo";
         // 
@@ -92,10 +95,10 @@ partial class FrmCentrosEducativos
         pnlContenedor.Controls.Add(btnGuardar);
         pnlContenedor.Controls.Add(btnRecargar);
         pnlContenedor.Dock = DockStyle.Fill;
-        pnlContenedor.Location = new Point(0, 50);
+        pnlContenedor.Location = new Point(0, 85);
         pnlContenedor.Name = "pnlContenedor";
         pnlContenedor.Padding = new Padding(30, 20, 30, 20);
-        pnlContenedor.Size = new Size(720, 480);
+        pnlContenedor.Size = new Size(720, 445);
         pnlContenedor.TabIndex = 1;
         // 
         // lblNombre
@@ -105,7 +108,7 @@ partial class FrmCentrosEducativos
         lblNombre.ForeColor = Color.FromArgb(51, 65, 85);
         lblNombre.Location = new Point(30, 20);
         lblNombre.Name = "lblNombre";
-        lblNombre.Size = new Size(116, 15);
+        lblNombre.Size = new Size(111, 15);
         lblNombre.TabIndex = 0;
         lblNombre.Text = "Nombre del Centro:";
         // 
@@ -162,7 +165,7 @@ partial class FrmCentrosEducativos
         lblCorreo.ForeColor = Color.FromArgb(51, 65, 85);
         lblCorreo.Location = new Point(30, 130);
         lblCorreo.Name = "lblCorreo";
-        lblCorreo.Size = new Size(108, 15);
+        lblCorreo.Size = new Size(107, 15);
         lblCorreo.TabIndex = 6;
         lblCorreo.Text = "Correo Electrónico:";
         // 
@@ -174,26 +177,25 @@ partial class FrmCentrosEducativos
         txtCorreo.Size = new Size(310, 24);
         txtCorreo.TabIndex = 7;
         // 
-        // lblDirector
+        // lblDireccion
         // 
-        lblDirector.AutoSize = true;
-        lblDirector.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-        lblDirector.ForeColor = Color.FromArgb(51, 65, 85);
-        lblDirector.Location = new Point(370, 130);
-        lblDirector.Name = "lblDirector";
-        lblDirector.Size = new Size(53, 15);
-        lblDirector.TabIndex = 8;
-        lblDirector.Text = "Director:";
+        lblDireccion.AutoSize = true;
+        lblDireccion.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+        lblDireccion.ForeColor = Color.FromArgb(51, 65, 85);
+        lblDireccion.Location = new Point(30, 240);
+        lblDireccion.Name = "lblDireccion";
+        lblDireccion.Size = new Size(61, 15);
+        lblDireccion.TabIndex = 14;
+        lblDireccion.Text = "Dirección:";
         // 
-        // cmbDirector
+        // txtDireccion
         // 
-        cmbDirector.DropDownStyle = ComboBoxStyle.DropDownList;
-        cmbDirector.Font = new Font("Segoe UI", 9.5F);
-        cmbDirector.FormattingEnabled = true;
-        cmbDirector.Location = new Point(370, 148);
-        cmbDirector.Name = "cmbDirector";
-        cmbDirector.Size = new Size(310, 24);
-        cmbDirector.TabIndex = 9;
+        txtDireccion.Font = new Font("Segoe UI", 9.5F);
+        txtDireccion.Location = new Point(30, 258);
+        txtDireccion.Multiline = true;
+        txtDireccion.Name = "txtDireccion";
+        txtDireccion.Size = new Size(650, 60);
+        txtDireccion.TabIndex = 15;
         // 
         // lblDistrito
         // 
@@ -202,7 +204,7 @@ partial class FrmCentrosEducativos
         lblDistrito.ForeColor = Color.FromArgb(51, 65, 85);
         lblDistrito.Location = new Point(30, 185);
         lblDistrito.Name = "lblDistrito";
-        lblDistrito.Size = new Size(106, 15);
+        lblDistrito.Size = new Size(104, 15);
         lblDistrito.TabIndex = 10;
         lblDistrito.Text = "Distrito Educativo:";
         // 
@@ -221,7 +223,7 @@ partial class FrmCentrosEducativos
         lblRegional.ForeColor = Color.FromArgb(51, 65, 85);
         lblRegional.Location = new Point(370, 185);
         lblRegional.Name = "lblRegional";
-        lblRegional.Size = new Size(113, 15);
+        lblRegional.Size = new Size(111, 15);
         lblRegional.TabIndex = 12;
         lblRegional.Text = "Regional Educativo:";
         // 
@@ -233,45 +235,59 @@ partial class FrmCentrosEducativos
         txtRegional.Size = new Size(310, 24);
         txtRegional.TabIndex = 13;
         // 
-        // lblDireccion
+        // lblDirector
         // 
-        lblDireccion.AutoSize = true;
-        lblDireccion.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-        lblDireccion.ForeColor = Color.FromArgb(51, 65, 85);
-        lblDireccion.Location = new Point(30, 240);
-        lblDireccion.Name = "lblDireccion";
-        lblDireccion.Size = new Size(60, 15);
-        lblDireccion.TabIndex = 14;
-        lblDireccion.Text = "Dirección:";
+        lblDirector.AutoSize = true;
+        lblDirector.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+        lblDirector.ForeColor = Color.FromArgb(51, 65, 85);
+        lblDirector.Location = new Point(370, 130);
+        lblDirector.Name = "lblDirector";
+        lblDirector.Size = new Size(53, 15);
+        lblDirector.TabIndex = 8;
+        lblDirector.Text = "Director:";
         // 
-        // txtDireccion
+        // cmbDirector
         // 
-        txtDireccion.Font = new Font("Segoe UI", 9.5F);
-        txtDireccion.Location = new Point(30, 258);
-        txtDireccion.Multiline = true;
-        txtDireccion.Name = "txtDireccion";
-        txtDireccion.Size = new Size(650, 60);
-        txtDireccion.TabIndex = 15;
+        cmbDirector.DropDownStyle = ComboBoxStyle.DropDownList;
+        cmbDirector.Font = new Font("Segoe UI", 9.5F);
+        cmbDirector.FormattingEnabled = true;
+        cmbDirector.Items.AddRange(new object[] { "Lic. Salatiel Y. Matos", "Lic. Luis A. Feliz" });
+        cmbDirector.Location = new Point(370, 148);
+        cmbDirector.Name = "cmbDirector";
+        cmbDirector.Size = new Size(310, 25);
+        cmbDirector.TabIndex = 9;
         // 
         // btnGuardar
         // 
+        btnGuardar.BackColor = SystemColors.ActiveBorder;
         btnGuardar.Location = new Point(30, 340);
         btnGuardar.Name = "btnGuardar";
         btnGuardar.Size = new Size(150, 38);
         btnGuardar.TabIndex = 16;
         btnGuardar.Text = "Guardar Cambios";
-        btnGuardar.UseVisualStyleBackColor = true;
+        btnGuardar.UseVisualStyleBackColor = false;
         btnGuardar.Click += BtnGuardar_Click;
         // 
         // btnRecargar
         // 
+        btnRecargar.BackColor = Color.MediumSpringGreen;
         btnRecargar.Location = new Point(190, 340);
         btnRecargar.Name = "btnRecargar";
         btnRecargar.Size = new Size(120, 38);
         btnRecargar.TabIndex = 17;
-        btnRecargar.Text = "Recargar";
-        btnRecargar.UseVisualStyleBackColor = true;
+        btnRecargar.Text = "Cargar";
+        btnRecargar.UseVisualStyleBackColor = false;
         btnRecargar.Click += BtnRecargar_Click;
+        // 
+        // pictureBox1
+        // 
+        pictureBox1.Image = Properties.Resources.historial_medico;
+        pictureBox1.Location = new Point(30, 6);
+        pictureBox1.Name = "pictureBox1";
+        pictureBox1.Size = new Size(86, 76);
+        pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+        pictureBox1.TabIndex = 1;
+        pictureBox1.TabStop = false;
         // 
         // FrmCentrosEducativos
         // 
@@ -291,6 +307,7 @@ partial class FrmCentrosEducativos
         pnlTop.PerformLayout();
         pnlContenedor.ResumeLayout(false);
         pnlContenedor.PerformLayout();
+        ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
         ResumeLayout(false);
     }
 
@@ -318,4 +335,5 @@ partial class FrmCentrosEducativos
     private ComboBox cmbDirector;
     private Button btnGuardar;
     private Button btnRecargar;
+    private PictureBox pictureBox1;
 }

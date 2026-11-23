@@ -234,4 +234,9 @@ public partial class FrmActivos : Form
     {
         CargarDatos(txtBuscar.Text);
     }
+
+    private void dgvActivos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+    {
+
+    }
 }

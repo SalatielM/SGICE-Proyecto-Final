@@ -161,4 +161,9 @@ public partial class FrmCategorias : Form
     {
         CargarDatos(txtBuscar.Text);
     }
+
+    private void txtVidaUtil_TextChanged(object sender, EventArgs e)
+    {
+
+    }
 }

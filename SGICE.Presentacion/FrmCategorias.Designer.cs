@@ -36,11 +36,13 @@ partial class FrmCategorias
         btnGuardar = new Button();
         btnCancelar = new Button();
         dgvCategorias = new DataGridView();
+        pictureBox1 = new PictureBox();
         ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
         pnlTop.SuspendLayout();
         pnlFiltro.SuspendLayout();
         pnlDatos.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)dgvCategorias).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
         SuspendLayout();
         // 
         // errorProvider
@@ -49,22 +51,23 @@ partial class FrmCategorias
         // 
         // pnlTop
         // 
-        pnlTop.BackColor = Color.FromArgb(30, 41, 59);
+        pnlTop.BackColor = Color.Purple;
+        pnlTop.Controls.Add(pictureBox1);
         pnlTop.Controls.Add(lblTitulo);
         pnlTop.Dock = DockStyle.Top;
         pnlTop.Location = new Point(0, 0);
         pnlTop.Name = "pnlTop";
-        pnlTop.Size = new Size(880, 50);
+        pnlTop.Size = new Size(644, 73);
         pnlTop.TabIndex = 0;
         // 
         // lblTitulo
         // 
         lblTitulo.AutoSize = true;
-        lblTitulo.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+        lblTitulo.Font = new Font("Times New Roman", 20F, FontStyle.Bold);
         lblTitulo.ForeColor = Color.White;
-        lblTitulo.Location = new Point(16, 12);
+        lblTitulo.Location = new Point(201, 18);
         lblTitulo.Name = "lblTitulo";
-        lblTitulo.Size = new Size(232, 25);
+        lblTitulo.Size = new Size(288, 31);
         lblTitulo.TabIndex = 0;
         lblTitulo.Text = "Catálogo de Categorías";
         // 
@@ -75,10 +78,10 @@ partial class FrmCategorias
         pnlFiltro.Controls.Add(txtBuscar);
         pnlFiltro.Controls.Add(btnBuscar);
         pnlFiltro.Dock = DockStyle.Top;
-        pnlFiltro.Location = new Point(0, 50);
+        pnlFiltro.Location = new Point(0, 73);
         pnlFiltro.Name = "pnlFiltro";
         pnlFiltro.Padding = new Padding(16, 10, 16, 10);
-        pnlFiltro.Size = new Size(880, 46);
+        pnlFiltro.Size = new Size(644, 46);
         pnlFiltro.TabIndex = 1;
         // 
         // lblBuscar
@@ -104,12 +107,13 @@ partial class FrmCategorias
         // 
         // btnBuscar
         // 
+        btnBuscar.BackColor = SystemColors.ActiveBorder;
         btnBuscar.Location = new Point(353, 10);
         btnBuscar.Name = "btnBuscar";
         btnBuscar.Size = new Size(80, 26);
         btnBuscar.TabIndex = 2;
-        btnBuscar.Text = "Refrescar";
-        btnBuscar.UseVisualStyleBackColor = true;
+        btnBuscar.Text = "Buscar";
+        btnBuscar.UseVisualStyleBackColor = false;
         btnBuscar.Click += BtnBuscar_Click;
         // 
         // pnlDatos
@@ -125,10 +129,10 @@ partial class FrmCategorias
         pnlDatos.Controls.Add(btnGuardar);
         pnlDatos.Controls.Add(btnCancelar);
         pnlDatos.Dock = DockStyle.Right;
-        pnlDatos.Location = new Point(560, 96);
+        pnlDatos.Location = new Point(324, 119);
         pnlDatos.Name = "pnlDatos";
         pnlDatos.Padding = new Padding(16);
-        pnlDatos.Size = new Size(320, 465);
+        pnlDatos.Size = new Size(320, 442);
         pnlDatos.TabIndex = 2;
         // 
         // lblNombre
@@ -157,7 +161,7 @@ partial class FrmCategorias
         lblVidaUtil.ForeColor = Color.FromArgb(51, 65, 85);
         lblVidaUtil.Location = new Point(16, 80);
         lblVidaUtil.Name = "lblVidaUtil";
-        lblVidaUtil.Size = new Size(92, 15);
+        lblVidaUtil.Size = new Size(93, 15);
         lblVidaUtil.TabIndex = 2;
         lblVidaUtil.Text = "Vida Útil (Años):";
         // 
@@ -168,6 +172,7 @@ partial class FrmCategorias
         txtVidaUtil.Name = "txtVidaUtil";
         txtVidaUtil.Size = new Size(280, 24);
         txtVidaUtil.TabIndex = 3;
+        txtVidaUtil.TextChanged += txtVidaUtil_TextChanged;
         // 
         // lblDescripcion
         // 
@@ -191,22 +196,24 @@ partial class FrmCategorias
         // 
         // btnNuevo
         // 
+        btnNuevo.BackColor = SystemColors.ActiveBorder;
         btnNuevo.Location = new Point(16, 250);
         btnNuevo.Name = "btnNuevo";
         btnNuevo.Size = new Size(85, 34);
         btnNuevo.TabIndex = 6;
         btnNuevo.Text = "Nuevo";
-        btnNuevo.UseVisualStyleBackColor = true;
+        btnNuevo.UseVisualStyleBackColor = false;
         btnNuevo.Click += BtnNuevo_Click;
         // 
         // btnGuardar
         // 
+        btnGuardar.BackColor = Color.MediumSpringGreen;
         btnGuardar.Location = new Point(107, 250);
         btnGuardar.Name = "btnGuardar";
         btnGuardar.Size = new Size(95, 34);
         btnGuardar.TabIndex = 7;
         btnGuardar.Text = "Guardar";
-        btnGuardar.UseVisualStyleBackColor = true;
+        btnGuardar.UseVisualStyleBackColor = false;
         btnGuardar.Click += BtnGuardar_Click;
         // 
         // btnCancelar
@@ -222,17 +229,27 @@ partial class FrmCategorias
         // dgvCategorias
         // 
         dgvCategorias.Dock = DockStyle.Fill;
-        dgvCategorias.Location = new Point(0, 96);
+        dgvCategorias.Location = new Point(0, 119);
         dgvCategorias.Name = "dgvCategorias";
-        dgvCategorias.Size = new Size(560, 465);
+        dgvCategorias.Size = new Size(324, 442);
         dgvCategorias.TabIndex = 3;
         dgvCategorias.SelectionChanged += DgvCategorias_SelectionChanged;
+        // 
+        // pictureBox1
+        // 
+        pictureBox1.Image = Properties.Resources.lista_en_linea;
+        pictureBox1.Location = new Point(36, 3);
+        pictureBox1.Name = "pictureBox1";
+        pictureBox1.Size = new Size(77, 64);
+        pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+        pictureBox1.TabIndex = 1;
+        pictureBox1.TabStop = false;
         // 
         // FrmCategorias
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(880, 561);
+        ClientSize = new Size(644, 561);
         Controls.Add(dgvCategorias);
         Controls.Add(pnlDatos);
         Controls.Add(pnlFiltro);
@@ -249,6 +266,7 @@ partial class FrmCategorias
         pnlDatos.ResumeLayout(false);
         pnlDatos.PerformLayout();
         ((System.ComponentModel.ISupportInitialize)dgvCategorias).EndInit();
+        ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
         ResumeLayout(false);
     }
 
@@ -272,4 +290,5 @@ partial class FrmCategorias
     private Button btnGuardar;
     private Button btnCancelar;
     private DataGridView dgvCategorias;
+    private PictureBox pictureBox1;
 }
