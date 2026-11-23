@@ -69,7 +69,7 @@ partial class FrmEntradas
         lblTitulo.ForeColor = Color.White;
         lblTitulo.Location = new Point(16, 12);
         lblTitulo.Name = "lblTitulo";
-        lblTitulo.Size = new Size(475, 25);
+        lblTitulo.Size = new Size(472, 25);
         lblTitulo.TabIndex = 0;
         lblTitulo.Text = "Entrada de Activos y Asignación de Códigos QR / AF";
         // 
@@ -96,7 +96,7 @@ partial class FrmEntradas
         lblTipoDoc.ForeColor = Color.FromArgb(51, 65, 85);
         lblTipoDoc.Location = new Point(16, 12);
         lblTipoDoc.Name = "lblTipoDoc";
-        lblTipoDoc.Size = new Size(125, 15);
+        lblTipoDoc.Size = new Size(129, 15);
         lblTipoDoc.TabIndex = 0;
         lblTipoDoc.Text = "Documento de Origen:";
         // 
@@ -107,7 +107,7 @@ partial class FrmEntradas
         cmbTipoDoc.FormattingEnabled = true;
         cmbTipoDoc.Location = new Point(16, 30);
         cmbTipoDoc.Name = "cmbTipoDoc";
-        cmbTipoDoc.Size = new Size(200, 24);
+        cmbTipoDoc.Size = new Size(200, 25);
         cmbTipoDoc.TabIndex = 1;
         // 
         // lblNoDoc
@@ -117,7 +117,7 @@ partial class FrmEntradas
         lblNoDoc.ForeColor = Color.FromArgb(51, 65, 85);
         lblNoDoc.Location = new Point(230, 12);
         lblNoDoc.Name = "lblNoDoc";
-        lblNoDoc.Size = new Size(99, 15);
+        lblNoDoc.Size = new Size(96, 15);
         lblNoDoc.TabIndex = 2;
         lblNoDoc.Text = "No. Documento:";
         // 
@@ -137,7 +137,7 @@ partial class FrmEntradas
         lblObservacion.ForeColor = Color.FromArgb(51, 65, 85);
         lblObservacion.Location = new Point(450, 12);
         lblObservacion.Name = "lblObservacion";
-        lblObservacion.Size = new Size(88, 15);
+        lblObservacion.Size = new Size(87, 15);
         lblObservacion.TabIndex = 4;
         lblObservacion.Text = "Observaciones:";
         // 
@@ -173,7 +173,7 @@ partial class FrmEntradas
         lblActivo.ForeColor = Color.FromArgb(51, 65, 85);
         lblActivo.Location = new Point(16, 18);
         lblActivo.Name = "lblActivo";
-        lblActivo.Size = new Size(111, 15);
+        lblActivo.Size = new Size(110, 15);
         lblActivo.TabIndex = 0;
         lblActivo.Text = "Catálogo de Activo:";
         // 
@@ -184,7 +184,7 @@ partial class FrmEntradas
         cmbActivo.FormattingEnabled = true;
         cmbActivo.Location = new Point(135, 14);
         cmbActivo.Name = "cmbActivo";
-        cmbActivo.Size = new Size(420, 24);
+        cmbActivo.Size = new Size(420, 25);
         cmbActivo.TabIndex = 1;
         // 
         // lblCantidad
@@ -269,7 +269,7 @@ partial class FrmEntradas
         lblTotalActivos.ForeColor = Color.FromArgb(30, 41, 59);
         lblTotalActivos.Location = new Point(16, 20);
         lblTotalActivos.Name = "lblTotalActivos";
-        lblTotalActivos.Size = new Size(257, 19);
+        lblTotalActivos.Size = new Size(264, 19);
         lblTotalActivos.TabIndex = 2;
         lblTotalActivos.Text = "Total de activos físicos generados (AF): 0";
         // 

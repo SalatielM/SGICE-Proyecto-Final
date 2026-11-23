@@ -38,11 +38,13 @@ partial class FrmEdificios
         btnGuardar = new Button();
         btnCancelar = new Button();
         dgvEdificios = new DataGridView();
+        pictureBox1 = new PictureBox();
         ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
         pnlTop.SuspendLayout();
         pnlFiltro.SuspendLayout();
         pnlDatos.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)dgvEdificios).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
         SuspendLayout();
         // 
         // errorProvider
@@ -51,7 +53,8 @@ partial class FrmEdificios
         // 
         // pnlTop
         // 
-        pnlTop.BackColor = Color.FromArgb(30, 41, 59);
+        pnlTop.BackColor = Color.FromArgb(192, 0, 192);
+        pnlTop.Controls.Add(pictureBox1);
         pnlTop.Controls.Add(lblTitulo);
         pnlTop.Dock = DockStyle.Top;
         pnlTop.Location = new Point(0, 0);
@@ -62,11 +65,11 @@ partial class FrmEdificios
         // lblTitulo
         // 
         lblTitulo.AutoSize = true;
-        lblTitulo.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+        lblTitulo.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
         lblTitulo.ForeColor = Color.White;
         lblTitulo.Location = new Point(292, 24);
         lblTitulo.Name = "lblTitulo";
-        lblTitulo.Size = new Size(185, 25);
+        lblTitulo.Size = new Size(242, 31);
         lblTitulo.TabIndex = 0;
         lblTitulo.Text = "Gestion de edificios";
         // 
@@ -106,12 +109,13 @@ partial class FrmEdificios
         // 
         // btnBuscar
         // 
+        btnBuscar.BackColor = SystemColors.ActiveBorder;
         btnBuscar.Location = new Point(353, 10);
         btnBuscar.Name = "btnBuscar";
         btnBuscar.Size = new Size(80, 26);
         btnBuscar.TabIndex = 2;
-        btnBuscar.Text = "Refrescar";
-        btnBuscar.UseVisualStyleBackColor = true;
+        btnBuscar.Text = "Buscar";
+        btnBuscar.UseVisualStyleBackColor = false;
         btnBuscar.Click += BtnBuscar_Click;
         // 
         // pnlDatos
@@ -215,22 +219,24 @@ partial class FrmEdificios
         // 
         // btnNuevo
         // 
+        btnNuevo.BackColor = SystemColors.ActiveBorder;
         btnNuevo.Location = new Point(16, 290);
         btnNuevo.Name = "btnNuevo";
         btnNuevo.Size = new Size(90, 34);
         btnNuevo.TabIndex = 8;
         btnNuevo.Text = "Nuevo";
-        btnNuevo.UseVisualStyleBackColor = true;
+        btnNuevo.UseVisualStyleBackColor = false;
         btnNuevo.Click += BtnNuevo_Click;
         // 
         // btnGuardar
         // 
+        btnGuardar.BackColor = Color.MediumSpringGreen;
         btnGuardar.Location = new Point(112, 290);
         btnGuardar.Name = "btnGuardar";
         btnGuardar.Size = new Size(95, 34);
         btnGuardar.TabIndex = 9;
         btnGuardar.Text = "Guardar";
-        btnGuardar.UseVisualStyleBackColor = true;
+        btnGuardar.UseVisualStyleBackColor = false;
         btnGuardar.Click += BtnGuardar_Click;
         // 
         // btnCancelar
@@ -251,6 +257,16 @@ partial class FrmEdificios
         dgvEdificios.Size = new Size(570, 435);
         dgvEdificios.TabIndex = 3;
         dgvEdificios.SelectionChanged += DgvEdificios_SelectionChanged;
+        // 
+        // pictureBox1
+        // 
+        pictureBox1.Image = Properties.Resources.gestion_de_pedidos;
+        pictureBox1.Location = new Point(33, 9);
+        pictureBox1.Name = "pictureBox1";
+        pictureBox1.Size = new Size(94, 65);
+        pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+        pictureBox1.TabIndex = 1;
+        pictureBox1.TabStop = false;
         // 
         // FrmEdificios
         // 
@@ -273,6 +289,7 @@ partial class FrmEdificios
         pnlDatos.ResumeLayout(false);
         pnlDatos.PerformLayout();
         ((System.ComponentModel.ISupportInitialize)dgvEdificios).EndInit();
+        ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
         ResumeLayout(false);
     }
 
@@ -298,4 +315,5 @@ partial class FrmEdificios
     private Button btnGuardar;
     private Button btnCancelar;
     private DataGridView dgvEdificios;
+    private PictureBox pictureBox1;
 }
