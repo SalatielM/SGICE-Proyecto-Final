@@ -21,6 +21,7 @@ partial class FrmActivos
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmActivos));
         errorProvider = new ErrorProvider(components);
         pnlTop = new Panel();
+        pictureBox1 = new PictureBox();
         lblTitulo = new Label();
         pnlFiltro = new Panel();
         lblBuscar = new Label();
@@ -43,13 +44,12 @@ partial class FrmActivos
         btnGuardar = new Button();
         btnCancelar = new Button();
         dgvActivos = new DataGridView();
-        pictureBox1 = new PictureBox();
         ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
         pnlTop.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
         pnlFiltro.SuspendLayout();
         pnlDatos.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)dgvActivos).BeginInit();
-        ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
         SuspendLayout();
         // 
         // errorProvider
@@ -64,8 +64,18 @@ partial class FrmActivos
         pnlTop.Dock = DockStyle.Top;
         pnlTop.Location = new Point(0, 0);
         pnlTop.Name = "pnlTop";
-        pnlTop.Size = new Size(667, 74);
+        pnlTop.Size = new Size(728, 74);
         pnlTop.TabIndex = 0;
+        // 
+        // pictureBox1
+        // 
+        pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+        pictureBox1.Location = new Point(16, 12);
+        pictureBox1.Name = "pictureBox1";
+        pictureBox1.Size = new Size(58, 56);
+        pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+        pictureBox1.TabIndex = 1;
+        pictureBox1.TabStop = false;
         // 
         // lblTitulo
         // 
@@ -88,7 +98,7 @@ partial class FrmActivos
         pnlFiltro.Location = new Point(0, 74);
         pnlFiltro.Name = "pnlFiltro";
         pnlFiltro.Padding = new Padding(16, 10, 16, 10);
-        pnlFiltro.Size = new Size(667, 46);
+        pnlFiltro.Size = new Size(728, 46);
         pnlFiltro.TabIndex = 1;
         // 
         // lblBuscar
@@ -142,10 +152,10 @@ partial class FrmActivos
         pnlDatos.Controls.Add(btnGuardar);
         pnlDatos.Controls.Add(btnCancelar);
         pnlDatos.Dock = DockStyle.Right;
-        pnlDatos.Location = new Point(307, 120);
+        pnlDatos.Location = new Point(393, 120);
         pnlDatos.Name = "pnlDatos";
         pnlDatos.Padding = new Padding(16);
-        pnlDatos.Size = new Size(360, 501);
+        pnlDatos.Size = new Size(335, 501);
         pnlDatos.TabIndex = 2;
         // 
         // lblNombre
@@ -185,9 +195,9 @@ partial class FrmActivos
         cmbSubCategoria.Font = new Font("Segoe UI", 9.5F);
         cmbSubCategoria.FormattingEnabled = true;
         cmbSubCategoria.Items.AddRange(new object[] { "Laptop", "Escritorio", "Impresora", "Monitor" });
-        cmbSubCategoria.Location = new Point(16, 78);
+        cmbSubCategoria.Location = new Point(35, 78);
         cmbSubCategoria.Name = "cmbSubCategoria";
-        cmbSubCategoria.Size = new Size(320, 25);
+        cmbSubCategoria.Size = new Size(301, 25);
         cmbSubCategoria.TabIndex = 3;
         // 
         // lblMarca
@@ -207,9 +217,9 @@ partial class FrmActivos
         cmbMarca.Font = new Font("Segoe UI", 9.5F);
         cmbMarca.FormattingEnabled = true;
         cmbMarca.Items.AddRange(new object[] { "Lenovo", "HP", "DELL", "Asus" });
-        cmbMarca.Location = new Point(16, 128);
+        cmbMarca.Location = new Point(35, 128);
         cmbMarca.Name = "cmbMarca";
-        cmbMarca.Size = new Size(320, 25);
+        cmbMarca.Size = new Size(301, 25);
         cmbMarca.TabIndex = 5;
         // 
         // lblProveedor
@@ -229,9 +239,9 @@ partial class FrmActivos
         cmbProveedor.Font = new Font("Segoe UI", 9.5F);
         cmbProveedor.FormattingEnabled = true;
         cmbProveedor.Items.AddRange(new object[] { "Tech Solution", "Shadday", "Exatech" });
-        cmbProveedor.Location = new Point(16, 178);
+        cmbProveedor.Location = new Point(35, 178);
         cmbProveedor.Name = "cmbProveedor";
-        cmbProveedor.Size = new Size(320, 25);
+        cmbProveedor.Size = new Size(301, 25);
         cmbProveedor.TabIndex = 7;
         // 
         // lblPersonal
@@ -251,9 +261,9 @@ partial class FrmActivos
         cmbPersonal.Font = new Font("Segoe UI", 9.5F);
         cmbPersonal.FormattingEnabled = true;
         cmbPersonal.Items.AddRange(new object[] { "Luis", "Salatiel", "Wander", "Axel", "Kevin" });
-        cmbPersonal.Location = new Point(16, 228);
+        cmbPersonal.Location = new Point(35, 228);
         cmbPersonal.Name = "cmbPersonal";
-        cmbPersonal.Size = new Size(320, 25);
+        cmbPersonal.Size = new Size(301, 25);
         cmbPersonal.TabIndex = 9;
         // 
         // lblDescripcion
@@ -270,11 +280,12 @@ partial class FrmActivos
         // txtDescripcion
         // 
         txtDescripcion.Font = new Font("Segoe UI", 9.5F);
-        txtDescripcion.Location = new Point(16, 278);
+        txtDescripcion.Location = new Point(35, 278);
         txtDescripcion.Multiline = true;
         txtDescripcion.Name = "txtDescripcion";
-        txtDescripcion.Size = new Size(320, 50);
+        txtDescripcion.Size = new Size(306, 50);
         txtDescripcion.TabIndex = 11;
+        txtDescripcion.TextChanged += txtDescripcion_TextChanged;
         // 
         // btnNuevo
         // 
@@ -313,26 +324,16 @@ partial class FrmActivos
         dgvActivos.Dock = DockStyle.Fill;
         dgvActivos.Location = new Point(0, 120);
         dgvActivos.Name = "dgvActivos";
-        dgvActivos.Size = new Size(307, 501);
+        dgvActivos.Size = new Size(393, 501);
         dgvActivos.TabIndex = 3;
         dgvActivos.CellContentClick += dgvActivos_CellContentClick;
         dgvActivos.SelectionChanged += DgvActivos_SelectionChanged;
-        // 
-        // pictureBox1
-        // 
-        pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-        pictureBox1.Location = new Point(16, 12);
-        pictureBox1.Name = "pictureBox1";
-        pictureBox1.Size = new Size(58, 56);
-        pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-        pictureBox1.TabIndex = 1;
-        pictureBox1.TabStop = false;
         // 
         // FrmActivos
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(667, 621);
+        ClientSize = new Size(728, 621);
         Controls.Add(dgvActivos);
         Controls.Add(pnlDatos);
         Controls.Add(pnlFiltro);
@@ -344,12 +345,12 @@ partial class FrmActivos
         ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
         pnlTop.ResumeLayout(false);
         pnlTop.PerformLayout();
+        ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
         pnlFiltro.ResumeLayout(false);
         pnlFiltro.PerformLayout();
         pnlDatos.ResumeLayout(false);
         pnlDatos.PerformLayout();
         ((System.ComponentModel.ISupportInitialize)dgvActivos).EndInit();
-        ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
         ResumeLayout(false);
     }
 

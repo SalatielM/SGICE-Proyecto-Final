@@ -179,4 +179,9 @@ public partial class FrmProveedores : Form
     {
         CargarDatos(txtBuscar.Text);
     }
+
+    private void lblNombre_Click(object sender, EventArgs e)
+    {
+
+    }
 }

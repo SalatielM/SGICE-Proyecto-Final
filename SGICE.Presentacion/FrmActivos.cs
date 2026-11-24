@@ -239,4 +239,9 @@ public partial class FrmActivos : Form
     {
 
     }
+
+    private void txtDescripcion_TextChanged(object sender, EventArgs e)
+    {
+
+    }
 }

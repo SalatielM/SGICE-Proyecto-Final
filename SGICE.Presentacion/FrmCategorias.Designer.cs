@@ -20,6 +20,7 @@ partial class FrmCategorias
         components = new System.ComponentModel.Container();
         errorProvider = new ErrorProvider(components);
         pnlTop = new Panel();
+        pictureBox1 = new PictureBox();
         lblTitulo = new Label();
         pnlFiltro = new Panel();
         lblBuscar = new Label();
@@ -36,13 +37,12 @@ partial class FrmCategorias
         btnGuardar = new Button();
         btnCancelar = new Button();
         dgvCategorias = new DataGridView();
-        pictureBox1 = new PictureBox();
         ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
         pnlTop.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
         pnlFiltro.SuspendLayout();
         pnlDatos.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)dgvCategorias).BeginInit();
-        ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
         SuspendLayout();
         // 
         // errorProvider
@@ -59,6 +59,16 @@ partial class FrmCategorias
         pnlTop.Name = "pnlTop";
         pnlTop.Size = new Size(644, 73);
         pnlTop.TabIndex = 0;
+        // 
+        // pictureBox1
+        // 
+        pictureBox1.Image = Properties.Resources.lista_en_linea;
+        pictureBox1.Location = new Point(36, 3);
+        pictureBox1.Name = "pictureBox1";
+        pictureBox1.Size = new Size(77, 64);
+        pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+        pictureBox1.TabIndex = 1;
+        pictureBox1.TabStop = false;
         // 
         // lblTitulo
         // 
@@ -100,7 +110,7 @@ partial class FrmCategorias
         txtBuscar.Font = new Font("Segoe UI", 9.5F);
         txtBuscar.Location = new Point(67, 10);
         txtBuscar.Name = "txtBuscar";
-        txtBuscar.PlaceholderText = "Nombre o descripción...";
+        txtBuscar.PlaceholderText = "Nombre";
         txtBuscar.Size = new Size(280, 24);
         txtBuscar.TabIndex = 1;
         txtBuscar.TextChanged += TxtBuscar_TextChanged;
@@ -235,16 +245,6 @@ partial class FrmCategorias
         dgvCategorias.TabIndex = 3;
         dgvCategorias.SelectionChanged += DgvCategorias_SelectionChanged;
         // 
-        // pictureBox1
-        // 
-        pictureBox1.Image = Properties.Resources.lista_en_linea;
-        pictureBox1.Location = new Point(36, 3);
-        pictureBox1.Name = "pictureBox1";
-        pictureBox1.Size = new Size(77, 64);
-        pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-        pictureBox1.TabIndex = 1;
-        pictureBox1.TabStop = false;
-        // 
         // FrmCategorias
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
@@ -261,12 +261,12 @@ partial class FrmCategorias
         ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
         pnlTop.ResumeLayout(false);
         pnlTop.PerformLayout();
+        ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
         pnlFiltro.ResumeLayout(false);
         pnlFiltro.PerformLayout();
         pnlDatos.ResumeLayout(false);
         pnlDatos.PerformLayout();
         ((System.ComponentModel.ISupportInitialize)dgvCategorias).EndInit();
-        ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
         ResumeLayout(false);
     }
 

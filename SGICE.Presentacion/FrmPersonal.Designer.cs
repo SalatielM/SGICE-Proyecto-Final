@@ -44,11 +44,13 @@ partial class FrmPersonal
         btnGuardar = new Button();
         btnCancelar = new Button();
         dgvPersonal = new DataGridView();
+        pictureBox1 = new PictureBox();
         ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
         pnlTop.SuspendLayout();
         pnlFiltro.SuspendLayout();
         pnlDatos.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)dgvPersonal).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
         SuspendLayout();
         // 
         // errorProvider
@@ -57,22 +59,23 @@ partial class FrmPersonal
         // 
         // pnlTop
         // 
-        pnlTop.BackColor = Color.FromArgb(30, 41, 59);
+        pnlTop.BackColor = Color.FromArgb(192, 0, 192);
+        pnlTop.Controls.Add(pictureBox1);
         pnlTop.Controls.Add(lblTitulo);
         pnlTop.Dock = DockStyle.Top;
         pnlTop.Location = new Point(0, 0);
         pnlTop.Name = "pnlTop";
-        pnlTop.Size = new Size(1000, 50);
+        pnlTop.Size = new Size(1000, 83);
         pnlTop.TabIndex = 0;
         // 
         // lblTitulo
         // 
         lblTitulo.AutoSize = true;
-        lblTitulo.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+        lblTitulo.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
         lblTitulo.ForeColor = Color.White;
-        lblTitulo.Location = new Point(16, 12);
+        lblTitulo.Location = new Point(360, 31);
         lblTitulo.Name = "lblTitulo";
-        lblTitulo.Size = new Size(244, 25);
+        lblTitulo.Size = new Size(344, 31);
         lblTitulo.TabIndex = 0;
         lblTitulo.Text = "Gestión de Personal Escolar";
         // 
@@ -83,7 +86,7 @@ partial class FrmPersonal
         pnlFiltro.Controls.Add(txtBuscar);
         pnlFiltro.Controls.Add(btnBuscar);
         pnlFiltro.Dock = DockStyle.Top;
-        pnlFiltro.Location = new Point(0, 50);
+        pnlFiltro.Location = new Point(0, 83);
         pnlFiltro.Name = "pnlFiltro";
         pnlFiltro.Padding = new Padding(16, 10, 16, 10);
         pnlFiltro.Size = new Size(1000, 46);
@@ -105,19 +108,20 @@ partial class FrmPersonal
         txtBuscar.Font = new Font("Segoe UI", 9.5F);
         txtBuscar.Location = new Point(67, 10);
         txtBuscar.Name = "txtBuscar";
-        txtBuscar.PlaceholderText = "Nombre, apellido o cédula...";
+        txtBuscar.PlaceholderText = "Nombre, apellido ";
         txtBuscar.Size = new Size(300, 24);
         txtBuscar.TabIndex = 1;
         txtBuscar.TextChanged += TxtBuscar_TextChanged;
         // 
         // btnBuscar
         // 
+        btnBuscar.BackColor = SystemColors.ActiveBorder;
         btnBuscar.Location = new Point(375, 10);
         btnBuscar.Name = "btnBuscar";
         btnBuscar.Size = new Size(80, 26);
         btnBuscar.TabIndex = 2;
         btnBuscar.Text = "Refrescar";
-        btnBuscar.UseVisualStyleBackColor = true;
+        btnBuscar.UseVisualStyleBackColor = false;
         btnBuscar.Click += BtnBuscar_Click;
         // 
         // pnlDatos
@@ -141,10 +145,10 @@ partial class FrmPersonal
         pnlDatos.Controls.Add(btnGuardar);
         pnlDatos.Controls.Add(btnCancelar);
         pnlDatos.Dock = DockStyle.Right;
-        pnlDatos.Location = new Point(650, 96);
+        pnlDatos.Location = new Point(650, 129);
         pnlDatos.Name = "pnlDatos";
         pnlDatos.Padding = new Padding(16);
-        pnlDatos.Size = new Size(350, 525);
+        pnlDatos.Size = new Size(350, 492);
         pnlDatos.TabIndex = 2;
         // 
         // lblCodigo
@@ -154,7 +158,7 @@ partial class FrmPersonal
         lblCodigo.ForeColor = Color.FromArgb(51, 65, 85);
         lblCodigo.Location = new Point(16, 10);
         lblCodigo.Name = "lblCodigo";
-        lblCodigo.Size = new Size(92, 15);
+        lblCodigo.Size = new Size(96, 15);
         lblCodigo.TabIndex = 0;
         lblCodigo.Text = "Código Personal:";
         // 
@@ -212,7 +216,7 @@ partial class FrmPersonal
         lblCedula.ForeColor = Color.FromArgb(51, 65, 85);
         lblCedula.Location = new Point(16, 160);
         lblCedula.Name = "lblCedula";
-        lblCedula.Size = new Size(47, 15);
+        lblCedula.Size = new Size(46, 15);
         lblCedula.TabIndex = 6;
         lblCedula.Text = "Cédula:";
         // 
@@ -252,7 +256,7 @@ partial class FrmPersonal
         lblCorreo.ForeColor = Color.FromArgb(51, 65, 85);
         lblCorreo.Location = new Point(16, 260);
         lblCorreo.Name = "lblCorreo";
-        lblCorreo.Size = new Size(46, 15);
+        lblCorreo.Size = new Size(45, 15);
         lblCorreo.TabIndex = 10;
         lblCorreo.Text = "Correo:";
         // 
@@ -283,27 +287,29 @@ partial class FrmPersonal
         cmbPuesto.FormattingEnabled = true;
         cmbPuesto.Location = new Point(16, 328);
         cmbPuesto.Name = "cmbPuesto";
-        cmbPuesto.Size = new Size(310, 24);
+        cmbPuesto.Size = new Size(310, 25);
         cmbPuesto.TabIndex = 13;
         // 
         // btnNuevo
         // 
+        btnNuevo.BackColor = SystemColors.ActiveBorder;
         btnNuevo.Location = new Point(16, 370);
         btnNuevo.Name = "btnNuevo";
         btnNuevo.Size = new Size(90, 34);
         btnNuevo.TabIndex = 14;
         btnNuevo.Text = "Nuevo";
-        btnNuevo.UseVisualStyleBackColor = true;
+        btnNuevo.UseVisualStyleBackColor = false;
         btnNuevo.Click += BtnNuevo_Click;
         // 
         // btnGuardar
         // 
+        btnGuardar.BackColor = Color.MediumSpringGreen;
         btnGuardar.Location = new Point(115, 370);
         btnGuardar.Name = "btnGuardar";
         btnGuardar.Size = new Size(100, 34);
         btnGuardar.TabIndex = 15;
         btnGuardar.Text = "Guardar";
-        btnGuardar.UseVisualStyleBackColor = true;
+        btnGuardar.UseVisualStyleBackColor = false;
         btnGuardar.Click += BtnGuardar_Click;
         // 
         // btnCancelar
@@ -319,11 +325,21 @@ partial class FrmPersonal
         // dgvPersonal
         // 
         dgvPersonal.Dock = DockStyle.Fill;
-        dgvPersonal.Location = new Point(0, 96);
+        dgvPersonal.Location = new Point(0, 129);
         dgvPersonal.Name = "dgvPersonal";
-        dgvPersonal.Size = new Size(650, 525);
+        dgvPersonal.Size = new Size(650, 492);
         dgvPersonal.TabIndex = 3;
         dgvPersonal.SelectionChanged += DgvPersonal_SelectionChanged;
+        // 
+        // pictureBox1
+        // 
+        pictureBox1.Image = Properties.Resources.lider;
+        pictureBox1.Location = new Point(67, 6);
+        pictureBox1.Name = "pictureBox1";
+        pictureBox1.Size = new Size(100, 74);
+        pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+        pictureBox1.TabIndex = 1;
+        pictureBox1.TabStop = false;
         // 
         // FrmPersonal
         // 
@@ -346,6 +362,7 @@ partial class FrmPersonal
         pnlDatos.ResumeLayout(false);
         pnlDatos.PerformLayout();
         ((System.ComponentModel.ISupportInitialize)dgvPersonal).EndInit();
+        ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
         ResumeLayout(false);
     }
 
@@ -377,4 +394,5 @@ partial class FrmPersonal
     private Button btnGuardar;
     private Button btnCancelar;
     private DataGridView dgvPersonal;
+    private PictureBox pictureBox1;
 }

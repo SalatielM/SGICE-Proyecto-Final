@@ -20,6 +20,7 @@ partial class FrmProveedores
         components = new System.ComponentModel.Container();
         errorProvider = new ErrorProvider(components);
         pnlTop = new Panel();
+        pictureBox1 = new PictureBox();
         lblTitulo = new Label();
         pnlFiltro = new Panel();
         lblBuscar = new Label();
@@ -44,6 +45,7 @@ partial class FrmProveedores
         dgvProveedores = new DataGridView();
         ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
         pnlTop.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
         pnlFiltro.SuspendLayout();
         pnlDatos.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)dgvProveedores).BeginInit();
@@ -55,22 +57,33 @@ partial class FrmProveedores
         // 
         // pnlTop
         // 
-        pnlTop.BackColor = Color.FromArgb(30, 41, 59);
+        pnlTop.BackColor = Color.FromArgb(192, 0, 192);
+        pnlTop.Controls.Add(pictureBox1);
         pnlTop.Controls.Add(lblTitulo);
         pnlTop.Dock = DockStyle.Top;
         pnlTop.Location = new Point(0, 0);
         pnlTop.Name = "pnlTop";
-        pnlTop.Size = new Size(960, 50);
+        pnlTop.Size = new Size(960, 66);
         pnlTop.TabIndex = 0;
+        // 
+        // pictureBox1
+        // 
+        pictureBox1.Image = Properties.Resources.proveedor;
+        pictureBox1.Location = new Point(30, 3);
+        pictureBox1.Name = "pictureBox1";
+        pictureBox1.Size = new Size(79, 60);
+        pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+        pictureBox1.TabIndex = 1;
+        pictureBox1.TabStop = false;
         // 
         // lblTitulo
         // 
         lblTitulo.AutoSize = true;
-        lblTitulo.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+        lblTitulo.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
         lblTitulo.ForeColor = Color.White;
-        lblTitulo.Location = new Point(16, 12);
+        lblTitulo.Location = new Point(322, 20);
         lblTitulo.Name = "lblTitulo";
-        lblTitulo.Size = new Size(234, 25);
+        lblTitulo.Size = new Size(306, 31);
         lblTitulo.TabIndex = 0;
         lblTitulo.Text = "Catálogo de Proveedores";
         // 
@@ -81,7 +94,7 @@ partial class FrmProveedores
         pnlFiltro.Controls.Add(txtBuscar);
         pnlFiltro.Controls.Add(btnBuscar);
         pnlFiltro.Dock = DockStyle.Top;
-        pnlFiltro.Location = new Point(0, 50);
+        pnlFiltro.Location = new Point(0, 66);
         pnlFiltro.Name = "pnlFiltro";
         pnlFiltro.Padding = new Padding(16, 10, 16, 10);
         pnlFiltro.Size = new Size(960, 46);
@@ -110,12 +123,13 @@ partial class FrmProveedores
         // 
         // btnBuscar
         // 
+        btnBuscar.BackColor = SystemColors.ActiveBorder;
         btnBuscar.Location = new Point(353, 10);
         btnBuscar.Name = "btnBuscar";
         btnBuscar.Size = new Size(80, 26);
         btnBuscar.TabIndex = 2;
-        btnBuscar.Text = "Refrescar";
-        btnBuscar.UseVisualStyleBackColor = true;
+        btnBuscar.Text = "Buscar";
+        btnBuscar.UseVisualStyleBackColor = false;
         btnBuscar.Click += BtnBuscar_Click;
         // 
         // pnlDatos
@@ -137,10 +151,10 @@ partial class FrmProveedores
         pnlDatos.Controls.Add(btnGuardar);
         pnlDatos.Controls.Add(btnCancelar);
         pnlDatos.Dock = DockStyle.Right;
-        pnlDatos.Location = new Point(610, 96);
+        pnlDatos.Location = new Point(610, 112);
         pnlDatos.Name = "pnlDatos";
         pnlDatos.Padding = new Padding(16);
-        pnlDatos.Size = new Size(350, 485);
+        pnlDatos.Size = new Size(350, 469);
         pnlDatos.TabIndex = 2;
         // 
         // lblRNC
@@ -150,7 +164,7 @@ partial class FrmProveedores
         lblRNC.ForeColor = Color.FromArgb(51, 65, 85);
         lblRNC.Location = new Point(16, 10);
         lblRNC.Name = "lblRNC";
-        lblRNC.Size = new Size(34, 15);
+        lblRNC.Size = new Size(33, 15);
         lblRNC.TabIndex = 0;
         lblRNC.Text = "RNC:";
         // 
@@ -170,9 +184,10 @@ partial class FrmProveedores
         lblNombre.ForeColor = Color.FromArgb(51, 65, 85);
         lblNombre.Location = new Point(16, 60);
         lblNombre.Name = "lblNombre";
-        lblNombre.Size = new Size(130, 15);
+        lblNombre.Size = new Size(57, 15);
         lblNombre.TabIndex = 2;
-        lblNombre.Text = "Razón Social / Nombre:";
+        lblNombre.Text = " Nombre:";
+        lblNombre.Click += lblNombre_Click;
         // 
         // txtNombre
         // 
@@ -209,7 +224,7 @@ partial class FrmProveedores
         lblCorreo.ForeColor = Color.FromArgb(51, 65, 85);
         lblCorreo.Location = new Point(16, 160);
         lblCorreo.Name = "lblCorreo";
-        lblCorreo.Size = new Size(108, 15);
+        lblCorreo.Size = new Size(107, 15);
         lblCorreo.TabIndex = 6;
         lblCorreo.Text = "Correo Electrónico:";
         // 
@@ -229,7 +244,7 @@ partial class FrmProveedores
         lblContacto.ForeColor = Color.FromArgb(51, 65, 85);
         lblContacto.Location = new Point(16, 210);
         lblContacto.Name = "lblContacto";
-        lblContacto.Size = new Size(106, 15);
+        lblContacto.Size = new Size(103, 15);
         lblContacto.TabIndex = 8;
         lblContacto.Text = "Persona Contacto:";
         // 
@@ -248,7 +263,7 @@ partial class FrmProveedores
         lblDireccion.ForeColor = Color.FromArgb(51, 65, 85);
         lblDireccion.Location = new Point(16, 260);
         lblDireccion.Name = "lblDireccion";
-        lblDireccion.Size = new Size(60, 15);
+        lblDireccion.Size = new Size(61, 15);
         lblDireccion.TabIndex = 10;
         lblDireccion.Text = "Dirección:";
         // 
@@ -263,22 +278,24 @@ partial class FrmProveedores
         // 
         // btnNuevo
         // 
+        btnNuevo.BackColor = SystemColors.ActiveCaption;
         btnNuevo.Location = new Point(16, 345);
         btnNuevo.Name = "btnNuevo";
         btnNuevo.Size = new Size(95, 34);
         btnNuevo.TabIndex = 12;
         btnNuevo.Text = "Nuevo";
-        btnNuevo.UseVisualStyleBackColor = true;
+        btnNuevo.UseVisualStyleBackColor = false;
         btnNuevo.Click += BtnNuevo_Click;
         // 
         // btnGuardar
         // 
+        btnGuardar.BackColor = Color.MediumSpringGreen;
         btnGuardar.Location = new Point(119, 345);
         btnGuardar.Name = "btnGuardar";
         btnGuardar.Size = new Size(105, 34);
         btnGuardar.TabIndex = 13;
         btnGuardar.Text = "Guardar";
-        btnGuardar.UseVisualStyleBackColor = true;
+        btnGuardar.UseVisualStyleBackColor = false;
         btnGuardar.Click += BtnGuardar_Click;
         // 
         // btnCancelar
@@ -294,9 +311,9 @@ partial class FrmProveedores
         // dgvProveedores
         // 
         dgvProveedores.Dock = DockStyle.Fill;
-        dgvProveedores.Location = new Point(0, 96);
+        dgvProveedores.Location = new Point(0, 112);
         dgvProveedores.Name = "dgvProveedores";
-        dgvProveedores.Size = new Size(610, 485);
+        dgvProveedores.Size = new Size(610, 469);
         dgvProveedores.TabIndex = 3;
         dgvProveedores.SelectionChanged += DgvProveedores_SelectionChanged;
         // 
@@ -311,11 +328,12 @@ partial class FrmProveedores
         Controls.Add(pnlTop);
         Name = "FrmProveedores";
         StartPosition = FormStartPosition.CenterScreen;
-        Text = "Gestión de Proveedores";
+        Text = " ";
         Load += FrmProveedores_Load;
         ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
         pnlTop.ResumeLayout(false);
         pnlTop.PerformLayout();
+        ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
         pnlFiltro.ResumeLayout(false);
         pnlFiltro.PerformLayout();
         pnlDatos.ResumeLayout(false);
@@ -350,4 +368,5 @@ partial class FrmProveedores
     private Button btnGuardar;
     private Button btnCancelar;
     private DataGridView dgvProveedores;
+    private PictureBox pictureBox1;
 }

@@ -50,18 +50,18 @@ partial class FrmLogin
         lblSubtitulo.ForeColor = Color.FromArgb(148, 163, 184);
         lblSubtitulo.Location = new Point(24, 50);
         lblSubtitulo.Name = "lblSubtitulo";
-        lblSubtitulo.Size = new Size(292, 15);
+        lblSubtitulo.Size = new Size(296, 15);
         lblSubtitulo.TabIndex = 1;
         lblSubtitulo.Text = "Sistema de Gestión de Activos Inmuebles para Escuelas";
         // 
         // lblTitulo
         // 
         lblTitulo.AutoSize = true;
-        lblTitulo.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        lblTitulo.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
         lblTitulo.ForeColor = Color.White;
         lblTitulo.Location = new Point(20, 12);
         lblTitulo.Name = "lblTitulo";
-        lblTitulo.Size = new Size(95, 37);
+        lblTitulo.Size = new Size(98, 31);
         lblTitulo.TabIndex = 0;
         lblTitulo.Text = "SGICE";
         // 
@@ -143,7 +143,7 @@ partial class FrmLogin
         lblClave.ForeColor = Color.FromArgb(51, 65, 85);
         lblClave.Location = new Point(28, 93);
         lblClave.Name = "lblClave";
-        lblClave.Size = new Size(80, 17);
+        lblClave.Size = new Size(81, 17);
         lblClave.TabIndex = 2;
         lblClave.Text = "Contraseña:";
         // 

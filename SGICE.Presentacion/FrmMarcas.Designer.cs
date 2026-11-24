@@ -18,6 +18,7 @@ partial class FrmMarcas
     private void InitializeComponent()
     {
         components = new System.ComponentModel.Container();
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMarcas));
         errorProvider = new ErrorProvider(components);
         pnlTop = new Panel();
         lblTitulo = new Label();
@@ -34,11 +35,13 @@ partial class FrmMarcas
         btnGuardar = new Button();
         btnCancelar = new Button();
         dgvMarcas = new DataGridView();
+        pictureBox1 = new PictureBox();
         ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
         pnlTop.SuspendLayout();
         pnlFiltro.SuspendLayout();
         pnlDatos.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)dgvMarcas).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
         SuspendLayout();
         // 
         // errorProvider
@@ -47,22 +50,23 @@ partial class FrmMarcas
         // 
         // pnlTop
         // 
-        pnlTop.BackColor = Color.FromArgb(30, 41, 59);
+        pnlTop.BackColor = Color.FromArgb(192, 0, 192);
+        pnlTop.Controls.Add(pictureBox1);
         pnlTop.Controls.Add(lblTitulo);
         pnlTop.Dock = DockStyle.Top;
         pnlTop.Location = new Point(0, 0);
         pnlTop.Name = "pnlTop";
-        pnlTop.Size = new Size(860, 50);
+        pnlTop.Size = new Size(860, 80);
         pnlTop.TabIndex = 0;
         // 
         // lblTitulo
         // 
         lblTitulo.AutoSize = true;
-        lblTitulo.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+        lblTitulo.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
         lblTitulo.ForeColor = Color.White;
-        lblTitulo.Location = new Point(16, 12);
+        lblTitulo.Location = new Point(353, 25);
         lblTitulo.Name = "lblTitulo";
-        lblTitulo.Size = new Size(198, 25);
+        lblTitulo.Size = new Size(249, 31);
         lblTitulo.TabIndex = 0;
         lblTitulo.Text = "Catálogo de Marcas";
         // 
@@ -73,7 +77,7 @@ partial class FrmMarcas
         pnlFiltro.Controls.Add(txtBuscar);
         pnlFiltro.Controls.Add(btnBuscar);
         pnlFiltro.Dock = DockStyle.Top;
-        pnlFiltro.Location = new Point(0, 50);
+        pnlFiltro.Location = new Point(0, 80);
         pnlFiltro.Name = "pnlFiltro";
         pnlFiltro.Padding = new Padding(16, 10, 16, 10);
         pnlFiltro.Size = new Size(860, 46);
@@ -95,19 +99,20 @@ partial class FrmMarcas
         txtBuscar.Font = new Font("Segoe UI", 9.5F);
         txtBuscar.Location = new Point(67, 10);
         txtBuscar.Name = "txtBuscar";
-        txtBuscar.PlaceholderText = "Nombre o descripción...";
+        txtBuscar.PlaceholderText = "Nombre";
         txtBuscar.Size = new Size(280, 24);
         txtBuscar.TabIndex = 1;
         txtBuscar.TextChanged += TxtBuscar_TextChanged;
         // 
         // btnBuscar
         // 
+        btnBuscar.BackColor = SystemColors.ActiveBorder;
         btnBuscar.Location = new Point(353, 10);
         btnBuscar.Name = "btnBuscar";
         btnBuscar.Size = new Size(80, 26);
         btnBuscar.TabIndex = 2;
-        btnBuscar.Text = "Refrescar";
-        btnBuscar.UseVisualStyleBackColor = true;
+        btnBuscar.Text = "Buscar";
+        btnBuscar.UseVisualStyleBackColor = false;
         btnBuscar.Click += BtnBuscar_Click;
         // 
         // pnlDatos
@@ -121,10 +126,10 @@ partial class FrmMarcas
         pnlDatos.Controls.Add(btnGuardar);
         pnlDatos.Controls.Add(btnCancelar);
         pnlDatos.Dock = DockStyle.Right;
-        pnlDatos.Location = new Point(540, 96);
+        pnlDatos.Location = new Point(540, 126);
         pnlDatos.Name = "pnlDatos";
         pnlDatos.Padding = new Padding(16);
-        pnlDatos.Size = new Size(320, 465);
+        pnlDatos.Size = new Size(320, 435);
         pnlDatos.TabIndex = 2;
         // 
         // lblNombre
@@ -168,42 +173,55 @@ partial class FrmMarcas
         // 
         // btnNuevo
         // 
+        btnNuevo.BackColor = SystemColors.ActiveBorder;
         btnNuevo.Location = new Point(16, 200);
         btnNuevo.Name = "btnNuevo";
         btnNuevo.Size = new Size(85, 34);
         btnNuevo.TabIndex = 4;
         btnNuevo.Text = "Nuevo";
-        btnNuevo.UseVisualStyleBackColor = true;
+        btnNuevo.UseVisualStyleBackColor = false;
         btnNuevo.Click += BtnNuevo_Click;
         // 
         // btnGuardar
         // 
+        btnGuardar.BackColor = Color.MediumSpringGreen;
         btnGuardar.Location = new Point(107, 200);
         btnGuardar.Name = "btnGuardar";
         btnGuardar.Size = new Size(95, 34);
         btnGuardar.TabIndex = 5;
         btnGuardar.Text = "Guardar";
-        btnGuardar.UseVisualStyleBackColor = true;
+        btnGuardar.UseVisualStyleBackColor = false;
         btnGuardar.Click += BtnGuardar_Click;
         // 
         // btnCancelar
         // 
+        btnCancelar.BackColor = SystemColors.ActiveBorder;
         btnCancelar.Location = new Point(208, 200);
         btnCancelar.Name = "btnCancelar";
         btnCancelar.Size = new Size(88, 34);
         btnCancelar.TabIndex = 6;
         btnCancelar.Text = "Limpiar";
-        btnCancelar.UseVisualStyleBackColor = true;
+        btnCancelar.UseVisualStyleBackColor = false;
         btnCancelar.Click += BtnCancelar_Click;
         // 
         // dgvMarcas
         // 
         dgvMarcas.Dock = DockStyle.Fill;
-        dgvMarcas.Location = new Point(0, 96);
+        dgvMarcas.Location = new Point(0, 126);
         dgvMarcas.Name = "dgvMarcas";
-        dgvMarcas.Size = new Size(540, 465);
+        dgvMarcas.Size = new Size(540, 435);
         dgvMarcas.TabIndex = 3;
         dgvMarcas.SelectionChanged += DgvMarcas_SelectionChanged;
+        // 
+        // pictureBox1
+        // 
+        pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+        pictureBox1.Location = new Point(57, 9);
+        pictureBox1.Name = "pictureBox1";
+        pictureBox1.Size = new Size(85, 68);
+        pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+        pictureBox1.TabIndex = 1;
+        pictureBox1.TabStop = false;
         // 
         // FrmMarcas
         // 
@@ -226,6 +244,7 @@ partial class FrmMarcas
         pnlDatos.ResumeLayout(false);
         pnlDatos.PerformLayout();
         ((System.ComponentModel.ISupportInitialize)dgvMarcas).EndInit();
+        ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
         ResumeLayout(false);
     }
 
@@ -247,4 +266,5 @@ partial class FrmMarcas
     private Button btnGuardar;
     private Button btnCancelar;
     private DataGridView dgvMarcas;
+    private PictureBox pictureBox1;
 }
