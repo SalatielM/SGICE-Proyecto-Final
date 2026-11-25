@@ -76,4 +76,14 @@ public partial class FrmLogin : Form
         lblMensaje.Text = mensaje;
         lblMensaje.Visible = true;
     }
+
+    private void pnlContenedor_Paint(object sender, PaintEventArgs e)
+    {
+
+    }
+
+    private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+    {
+
+    }
 }
