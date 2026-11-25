@@ -38,11 +38,13 @@ partial class FrmSubCategorias
         btnGuardar = new Button();
         btnCancelar = new Button();
         dgvSubCategorias = new DataGridView();
+        pictureBox1 = new PictureBox();
         ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
         pnlTop.SuspendLayout();
         pnlFiltro.SuspendLayout();
         pnlDatos.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)dgvSubCategorias).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
         SuspendLayout();
         // 
         // errorProvider
@@ -51,22 +53,24 @@ partial class FrmSubCategorias
         // 
         // pnlTop
         // 
-        pnlTop.BackColor = Color.FromArgb(30, 41, 59);
+        pnlTop.BackColor = Color.FromArgb(192, 0, 192);
+        pnlTop.Controls.Add(pictureBox1);
         pnlTop.Controls.Add(lblTitulo);
         pnlTop.Dock = DockStyle.Top;
         pnlTop.Location = new Point(0, 0);
         pnlTop.Name = "pnlTop";
-        pnlTop.Size = new Size(920, 50);
+        pnlTop.Size = new Size(920, 88);
         pnlTop.TabIndex = 0;
+        pnlTop.Paint += pnlTop_Paint;
         // 
         // lblTitulo
         // 
         lblTitulo.AutoSize = true;
-        lblTitulo.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+        lblTitulo.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
         lblTitulo.ForeColor = Color.White;
-        lblTitulo.Location = new Point(16, 12);
+        lblTitulo.Location = new Point(330, 35);
         lblTitulo.Name = "lblTitulo";
-        lblTitulo.Size = new Size(260, 25);
+        lblTitulo.Size = new Size(325, 31);
         lblTitulo.TabIndex = 0;
         lblTitulo.Text = "Catálogo de Subcategorías";
         // 
@@ -77,7 +81,7 @@ partial class FrmSubCategorias
         pnlFiltro.Controls.Add(txtBuscar);
         pnlFiltro.Controls.Add(btnBuscar);
         pnlFiltro.Dock = DockStyle.Top;
-        pnlFiltro.Location = new Point(0, 50);
+        pnlFiltro.Location = new Point(0, 88);
         pnlFiltro.Name = "pnlFiltro";
         pnlFiltro.Padding = new Padding(16, 10, 16, 10);
         pnlFiltro.Size = new Size(920, 46);
@@ -106,12 +110,13 @@ partial class FrmSubCategorias
         // 
         // btnBuscar
         // 
+        btnBuscar.BackColor = SystemColors.ActiveBorder;
         btnBuscar.Location = new Point(353, 10);
         btnBuscar.Name = "btnBuscar";
         btnBuscar.Size = new Size(80, 26);
         btnBuscar.TabIndex = 2;
-        btnBuscar.Text = "Refrescar";
-        btnBuscar.UseVisualStyleBackColor = true;
+        btnBuscar.Text = "Buscar";
+        btnBuscar.UseVisualStyleBackColor = false;
         btnBuscar.Click += BtnBuscar_Click;
         // 
         // pnlDatos
@@ -129,10 +134,10 @@ partial class FrmSubCategorias
         pnlDatos.Controls.Add(btnGuardar);
         pnlDatos.Controls.Add(btnCancelar);
         pnlDatos.Dock = DockStyle.Right;
-        pnlDatos.Location = new Point(580, 96);
+        pnlDatos.Location = new Point(580, 134);
         pnlDatos.Name = "pnlDatos";
         pnlDatos.Padding = new Padding(16);
-        pnlDatos.Size = new Size(340, 465);
+        pnlDatos.Size = new Size(340, 427);
         pnlDatos.TabIndex = 2;
         // 
         // lblCategoria
@@ -142,7 +147,7 @@ partial class FrmSubCategorias
         lblCategoria.ForeColor = Color.FromArgb(51, 65, 85);
         lblCategoria.Location = new Point(16, 15);
         lblCategoria.Name = "lblCategoria";
-        lblCategoria.Size = new Size(116, 15);
+        lblCategoria.Size = new Size(109, 15);
         lblCategoria.TabIndex = 0;
         lblCategoria.Text = "Categoría Principal:";
         // 
@@ -153,7 +158,7 @@ partial class FrmSubCategorias
         cmbCategoria.FormattingEnabled = true;
         cmbCategoria.Location = new Point(16, 35);
         cmbCategoria.Name = "cmbCategoria";
-        cmbCategoria.Size = new Size(300, 24);
+        cmbCategoria.Size = new Size(300, 25);
         cmbCategoria.TabIndex = 1;
         // 
         // lblNombre
@@ -182,7 +187,7 @@ partial class FrmSubCategorias
         lblVidaUtil.ForeColor = Color.FromArgb(51, 65, 85);
         lblVidaUtil.Location = new Point(16, 135);
         lblVidaUtil.Name = "lblVidaUtil";
-        lblVidaUtil.Size = new Size(92, 15);
+        lblVidaUtil.Size = new Size(93, 15);
         lblVidaUtil.TabIndex = 4;
         lblVidaUtil.Text = "Vida Útil (Años):";
         // 
@@ -216,22 +221,25 @@ partial class FrmSubCategorias
         // 
         // btnNuevo
         // 
+        btnNuevo.BackColor = SystemColors.ActiveBorder;
         btnNuevo.Location = new Point(16, 290);
         btnNuevo.Name = "btnNuevo";
         btnNuevo.Size = new Size(90, 34);
         btnNuevo.TabIndex = 8;
         btnNuevo.Text = "Nuevo";
-        btnNuevo.UseVisualStyleBackColor = true;
+        btnNuevo.UseVisualStyleBackColor = false;
+        btnNuevo.BackgroundImageChanged += btnNuevo_BackgroundImageChanged;
         btnNuevo.Click += BtnNuevo_Click;
         // 
         // btnGuardar
         // 
+        btnGuardar.BackColor = Color.MediumSpringGreen;
         btnGuardar.Location = new Point(112, 290);
         btnGuardar.Name = "btnGuardar";
         btnGuardar.Size = new Size(100, 34);
         btnGuardar.TabIndex = 9;
         btnGuardar.Text = "Guardar";
-        btnGuardar.UseVisualStyleBackColor = true;
+        btnGuardar.UseVisualStyleBackColor = false;
         btnGuardar.Click += BtnGuardar_Click;
         // 
         // btnCancelar
@@ -247,11 +255,21 @@ partial class FrmSubCategorias
         // dgvSubCategorias
         // 
         dgvSubCategorias.Dock = DockStyle.Fill;
-        dgvSubCategorias.Location = new Point(0, 96);
+        dgvSubCategorias.Location = new Point(0, 134);
         dgvSubCategorias.Name = "dgvSubCategorias";
-        dgvSubCategorias.Size = new Size(580, 465);
+        dgvSubCategorias.Size = new Size(580, 427);
         dgvSubCategorias.TabIndex = 3;
         dgvSubCategorias.SelectionChanged += DgvSubCategorias_SelectionChanged;
+        // 
+        // pictureBox1
+        // 
+        pictureBox1.Image = Properties.Resources.papel;
+        pictureBox1.Location = new Point(53, 3);
+        pictureBox1.Name = "pictureBox1";
+        pictureBox1.Size = new Size(86, 76);
+        pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+        pictureBox1.TabIndex = 1;
+        pictureBox1.TabStop = false;
         // 
         // FrmSubCategorias
         // 
@@ -274,6 +292,7 @@ partial class FrmSubCategorias
         pnlDatos.ResumeLayout(false);
         pnlDatos.PerformLayout();
         ((System.ComponentModel.ISupportInitialize)dgvSubCategorias).EndInit();
+        ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
         ResumeLayout(false);
     }
 
@@ -299,4 +318,5 @@ partial class FrmSubCategorias
     private Button btnGuardar;
     private Button btnCancelar;
     private DataGridView dgvSubCategorias;
+    private PictureBox pictureBox1;
 }

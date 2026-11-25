@@ -203,4 +203,19 @@ public partial class FrmUbicaciones : Form
     {
         CargarDatos(txtBuscar.Text);
     }
+
+    private void pnlTop_Paint(object sender, PaintEventArgs e)
+    {
+
+    }
+
+    private void pictureBox1_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void txtNombre_TextChanged(object sender, EventArgs e)
+    {
+
+    }
 }

@@ -280,4 +280,19 @@ public partial class FrmTraslados : Form
         txtRazon.Clear();
         errorProvider.Clear();
     }
+
+    private void pnlTop_Paint(object sender, PaintEventArgs e)
+    {
+
+    }
+
+    private void lblTitulo_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void dgvDetalle_CellContentClick(object sender, DataGridViewCellEventArgs e)
+    {
+
+    }
 }

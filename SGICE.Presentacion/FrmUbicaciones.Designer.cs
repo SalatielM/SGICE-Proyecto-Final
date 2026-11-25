@@ -40,11 +40,13 @@ partial class FrmUbicaciones
         btnGuardar = new Button();
         btnCancelar = new Button();
         dgvUbicaciones = new DataGridView();
+        pictureBox1 = new PictureBox();
         ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
         pnlTop.SuspendLayout();
         pnlFiltro.SuspendLayout();
         pnlDatos.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)dgvUbicaciones).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
         SuspendLayout();
         // 
         // errorProvider
@@ -53,22 +55,24 @@ partial class FrmUbicaciones
         // 
         // pnlTop
         // 
-        pnlTop.BackColor = Color.FromArgb(30, 41, 59);
+        pnlTop.BackColor = Color.FromArgb(192, 0, 192);
+        pnlTop.Controls.Add(pictureBox1);
         pnlTop.Controls.Add(lblTitulo);
         pnlTop.Dock = DockStyle.Top;
         pnlTop.Location = new Point(0, 0);
         pnlTop.Name = "pnlTop";
-        pnlTop.Size = new Size(940, 50);
+        pnlTop.Size = new Size(940, 80);
         pnlTop.TabIndex = 0;
+        pnlTop.Paint += pnlTop_Paint;
         // 
         // lblTitulo
         // 
         lblTitulo.AutoSize = true;
-        lblTitulo.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+        lblTitulo.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
         lblTitulo.ForeColor = Color.White;
-        lblTitulo.Location = new Point(16, 12);
+        lblTitulo.Location = new Point(324, 29);
         lblTitulo.Name = "lblTitulo";
-        lblTitulo.Size = new Size(331, 25);
+        lblTitulo.Size = new Size(432, 31);
         lblTitulo.TabIndex = 0;
         lblTitulo.Text = "Catálogo de Ubicaciones y Espacios";
         // 
@@ -79,7 +83,7 @@ partial class FrmUbicaciones
         pnlFiltro.Controls.Add(txtBuscar);
         pnlFiltro.Controls.Add(btnBuscar);
         pnlFiltro.Dock = DockStyle.Top;
-        pnlFiltro.Location = new Point(0, 50);
+        pnlFiltro.Location = new Point(0, 80);
         pnlFiltro.Name = "pnlFiltro";
         pnlFiltro.Padding = new Padding(16, 10, 16, 10);
         pnlFiltro.Size = new Size(940, 46);
@@ -108,12 +112,13 @@ partial class FrmUbicaciones
         // 
         // btnBuscar
         // 
+        btnBuscar.BackColor = SystemColors.ActiveBorder;
         btnBuscar.Location = new Point(353, 10);
         btnBuscar.Name = "btnBuscar";
         btnBuscar.Size = new Size(80, 26);
         btnBuscar.TabIndex = 2;
-        btnBuscar.Text = "Refrescar";
-        btnBuscar.UseVisualStyleBackColor = true;
+        btnBuscar.Text = "Buscar";
+        btnBuscar.UseVisualStyleBackColor = false;
         btnBuscar.Click += BtnBuscar_Click;
         // 
         // pnlDatos
@@ -133,10 +138,10 @@ partial class FrmUbicaciones
         pnlDatos.Controls.Add(btnGuardar);
         pnlDatos.Controls.Add(btnCancelar);
         pnlDatos.Dock = DockStyle.Right;
-        pnlDatos.Location = new Point(600, 96);
+        pnlDatos.Location = new Point(600, 126);
         pnlDatos.Name = "pnlDatos";
         pnlDatos.Padding = new Padding(16);
-        pnlDatos.Size = new Size(340, 485);
+        pnlDatos.Size = new Size(340, 455);
         pnlDatos.TabIndex = 2;
         // 
         // lblEdificio
@@ -157,7 +162,7 @@ partial class FrmUbicaciones
         cmbEdificio.FormattingEnabled = true;
         cmbEdificio.Location = new Point(16, 35);
         cmbEdificio.Name = "cmbEdificio";
-        cmbEdificio.Size = new Size(300, 24);
+        cmbEdificio.Size = new Size(300, 25);
         cmbEdificio.TabIndex = 1;
         // 
         // lblNombre
@@ -167,7 +172,7 @@ partial class FrmUbicaciones
         lblNombre.ForeColor = Color.FromArgb(51, 65, 85);
         lblNombre.Location = new Point(16, 75);
         lblNombre.Name = "lblNombre";
-        lblNombre.Size = new Size(130, 15);
+        lblNombre.Size = new Size(126, 15);
         lblNombre.TabIndex = 2;
         lblNombre.Text = "Nombre de Ubicación:";
         // 
@@ -176,9 +181,9 @@ partial class FrmUbicaciones
         txtNombre.Font = new Font("Segoe UI", 9.5F);
         txtNombre.Location = new Point(16, 95);
         txtNombre.Name = "txtNombre";
-        txtNombre.PlaceholderText = "Aula 101, Laboratorio 2...";
         txtNombre.Size = new Size(300, 24);
         txtNombre.TabIndex = 3;
+        txtNombre.TextChanged += txtNombre_TextChanged;
         // 
         // lblPiso
         // 
@@ -206,7 +211,7 @@ partial class FrmUbicaciones
         lblDimension.ForeColor = Color.FromArgb(51, 65, 85);
         lblDimension.Location = new Point(165, 135);
         lblDimension.Name = "lblDimension";
-        lblDimension.Size = new Size(67, 15);
+        lblDimension.Size = new Size(68, 15);
         lblDimension.TabIndex = 6;
         lblDimension.Text = "Dimensión:";
         // 
@@ -241,22 +246,24 @@ partial class FrmUbicaciones
         // 
         // btnNuevo
         // 
+        btnNuevo.BackColor = SystemColors.ActiveBorder;
         btnNuevo.Location = new Point(16, 290);
         btnNuevo.Name = "btnNuevo";
         btnNuevo.Size = new Size(90, 34);
         btnNuevo.TabIndex = 10;
         btnNuevo.Text = "Nuevo";
-        btnNuevo.UseVisualStyleBackColor = true;
+        btnNuevo.UseVisualStyleBackColor = false;
         btnNuevo.Click += BtnNuevo_Click;
         // 
         // btnGuardar
         // 
+        btnGuardar.BackColor = Color.MediumSpringGreen;
         btnGuardar.Location = new Point(112, 290);
         btnGuardar.Name = "btnGuardar";
         btnGuardar.Size = new Size(100, 34);
         btnGuardar.TabIndex = 11;
         btnGuardar.Text = "Guardar";
-        btnGuardar.UseVisualStyleBackColor = true;
+        btnGuardar.UseVisualStyleBackColor = false;
         btnGuardar.Click += BtnGuardar_Click;
         // 
         // btnCancelar
@@ -272,14 +279,26 @@ partial class FrmUbicaciones
         // dgvUbicaciones
         // 
         dgvUbicaciones.Dock = DockStyle.Fill;
-        dgvUbicaciones.Location = new Point(0, 96);
+        dgvUbicaciones.Location = new Point(0, 126);
         dgvUbicaciones.Name = "dgvUbicaciones";
-        dgvUbicaciones.Size = new Size(600, 485);
+        dgvUbicaciones.Size = new Size(600, 455);
         dgvUbicaciones.TabIndex = 3;
         dgvUbicaciones.SelectionChanged += DgvUbicaciones_SelectionChanged;
         // 
+        // pictureBox1
+        // 
+        pictureBox1.Image = Properties.Resources.ubicaciones;
+        pictureBox1.Location = new Point(43, 3);
+        pictureBox1.Name = "pictureBox1";
+        pictureBox1.Size = new Size(75, 74);
+        pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+        pictureBox1.TabIndex = 1;
+        pictureBox1.TabStop = false;
+        pictureBox1.Click += pictureBox1_Click;
+        // 
         // FrmUbicaciones
         // 
+        AccessibleRole = AccessibleRole.None;
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(940, 581);
@@ -299,6 +318,7 @@ partial class FrmUbicaciones
         pnlDatos.ResumeLayout(false);
         pnlDatos.PerformLayout();
         ((System.ComponentModel.ISupportInitialize)dgvUbicaciones).EndInit();
+        ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
         ResumeLayout(false);
     }
 
@@ -326,4 +346,5 @@ partial class FrmUbicaciones
     private Button btnGuardar;
     private Button btnCancelar;
     private DataGridView dgvUbicaciones;
+    private PictureBox pictureBox1;
 }

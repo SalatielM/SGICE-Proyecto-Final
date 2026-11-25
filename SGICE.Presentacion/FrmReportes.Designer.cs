@@ -33,11 +33,13 @@ partial class FrmReportes
         pnlFooter = new Panel();
         lblTotalRegistros = new Label();
         dgvReporte = new DataGridView();
+        pictureBox1 = new PictureBox();
         ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
         pnlTop.SuspendLayout();
         pnlFiltros.SuspendLayout();
         pnlFooter.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)dgvReporte).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
         SuspendLayout();
         // 
         // errorProvider
@@ -46,22 +48,23 @@ partial class FrmReportes
         // 
         // pnlTop
         // 
-        pnlTop.BackColor = Color.FromArgb(30, 41, 59);
+        pnlTop.BackColor = Color.FromArgb(192, 0, 192);
+        pnlTop.Controls.Add(pictureBox1);
         pnlTop.Controls.Add(lblTitulo);
         pnlTop.Dock = DockStyle.Top;
         pnlTop.Location = new Point(0, 0);
         pnlTop.Name = "pnlTop";
-        pnlTop.Size = new Size(1100, 50);
+        pnlTop.Size = new Size(1100, 94);
         pnlTop.TabIndex = 0;
         // 
         // lblTitulo
         // 
         lblTitulo.AutoSize = true;
-        lblTitulo.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+        lblTitulo.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
         lblTitulo.ForeColor = Color.White;
-        lblTitulo.Location = new Point(16, 12);
+        lblTitulo.Location = new Point(371, 36);
         lblTitulo.Name = "lblTitulo";
-        lblTitulo.Size = new Size(420, 25);
+        lblTitulo.Size = new Size(533, 31);
         lblTitulo.TabIndex = 0;
         lblTitulo.Text = "Módulo de Reportes y Bitácora de Auditoría";
         // 
@@ -77,7 +80,7 @@ partial class FrmReportes
         pnlFiltros.Controls.Add(btnGenerar);
         pnlFiltros.Controls.Add(btnExportar);
         pnlFiltros.Dock = DockStyle.Top;
-        pnlFiltros.Location = new Point(0, 50);
+        pnlFiltros.Location = new Point(0, 94);
         pnlFiltros.Name = "pnlFiltros";
         pnlFiltros.Padding = new Padding(16, 10, 16, 10);
         pnlFiltros.Size = new Size(1100, 65);
@@ -90,7 +93,7 @@ partial class FrmReportes
         lblTipoReporte.ForeColor = Color.FromArgb(51, 65, 85);
         lblTipoReporte.Location = new Point(16, 12);
         lblTipoReporte.Name = "lblTipoReporte";
-        lblTipoReporte.Size = new Size(93, 15);
+        lblTipoReporte.Size = new Size(94, 15);
         lblTipoReporte.TabIndex = 0;
         lblTipoReporte.Text = "Tipo de Reporte:";
         // 
@@ -101,7 +104,7 @@ partial class FrmReportes
         cmbTipoReporte.FormattingEnabled = true;
         cmbTipoReporte.Location = new Point(16, 30);
         cmbTipoReporte.Name = "cmbTipoReporte";
-        cmbTipoReporte.Size = new Size(240, 24);
+        cmbTipoReporte.Size = new Size(240, 25);
         cmbTipoReporte.TabIndex = 1;
         // 
         // lblFechaDesde
@@ -111,7 +114,7 @@ partial class FrmReportes
         lblFechaDesde.ForeColor = Color.FromArgb(51, 65, 85);
         lblFechaDesde.Location = new Point(275, 12);
         lblFechaDesde.Name = "lblFechaDesde";
-        lblFechaDesde.Size = new Size(76, 15);
+        lblFechaDesde.Size = new Size(77, 15);
         lblFechaDesde.TabIndex = 2;
         lblFechaDesde.Text = "Fecha Desde:";
         // 
@@ -152,22 +155,24 @@ partial class FrmReportes
         // 
         // btnGenerar
         // 
+        btnGenerar.BackColor = Color.MediumSpringGreen;
         btnGenerar.Location = new Point(570, 26);
         btnGenerar.Name = "btnGenerar";
         btnGenerar.Size = new Size(140, 32);
         btnGenerar.TabIndex = 6;
         btnGenerar.Text = "Generar Reporte";
-        btnGenerar.UseVisualStyleBackColor = true;
+        btnGenerar.UseVisualStyleBackColor = false;
         btnGenerar.Click += BtnGenerar_Click;
         // 
         // btnExportar
         // 
+        btnExportar.BackColor = SystemColors.ActiveBorder;
         btnExportar.Location = new Point(720, 26);
         btnExportar.Name = "btnExportar";
         btnExportar.Size = new Size(180, 32);
         btnExportar.TabIndex = 7;
         btnExportar.Text = "Exportar a CSV / Excel";
-        btnExportar.UseVisualStyleBackColor = true;
+        btnExportar.UseVisualStyleBackColor = false;
         btnExportar.Click += BtnExportar_Click;
         // 
         // pnlFooter
@@ -188,17 +193,27 @@ partial class FrmReportes
         lblTotalRegistros.ForeColor = Color.FromArgb(30, 41, 59);
         lblTotalRegistros.Location = new Point(16, 12);
         lblTotalRegistros.Name = "lblTotalRegistros";
-        lblTotalRegistros.Size = new Size(157, 17);
+        lblTotalRegistros.Size = new Size(158, 17);
         lblTotalRegistros.TabIndex = 0;
         lblTotalRegistros.Text = "Registros encontrados: 0";
         // 
         // dgvReporte
         // 
         dgvReporte.Dock = DockStyle.Fill;
-        dgvReporte.Location = new Point(0, 115);
+        dgvReporte.Location = new Point(0, 159);
         dgvReporte.Name = "dgvReporte";
-        dgvReporte.Size = new Size(1100, 465);
+        dgvReporte.Size = new Size(1100, 421);
         dgvReporte.TabIndex = 3;
+        // 
+        // pictureBox1
+        // 
+        pictureBox1.Image = Properties.Resources.analisis_de_los_datos;
+        pictureBox1.Location = new Point(42, 12);
+        pictureBox1.Name = "pictureBox1";
+        pictureBox1.Size = new Size(91, 76);
+        pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+        pictureBox1.TabIndex = 1;
+        pictureBox1.TabStop = false;
         // 
         // FrmReportes
         // 
@@ -221,6 +236,7 @@ partial class FrmReportes
         pnlFooter.ResumeLayout(false);
         pnlFooter.PerformLayout();
         ((System.ComponentModel.ISupportInitialize)dgvReporte).EndInit();
+        ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
         ResumeLayout(false);
     }
 
@@ -241,4 +257,5 @@ partial class FrmReportes
     private Panel pnlFooter;
     private Label lblTotalRegistros;
     private DataGridView dgvReporte;
+    private PictureBox pictureBox1;
 }

@@ -195,4 +195,14 @@ public partial class FrmSubCategorias : Form
     {
         CargarDatos(txtBuscar.Text);
     }
+
+    private void pnlTop_Paint(object sender, PaintEventArgs e)
+    {
+
+    }
+
+    private void btnNuevo_BackgroundImageChanged(object sender, EventArgs e)
+    {
+
+    }
 }

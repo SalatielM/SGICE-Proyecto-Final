@@ -73,6 +73,26 @@ namespace SGICE.Presentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap analisis_de_los_datos {
+            get {
+                object obj = ResourceManager.GetObject("analisis-de-los-datos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cambiar {
+            get {
+                object obj = ResourceManager.GetObject("cambiar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gestion_de_pedidos {
             get {
                 object obj = ResourceManager.GetObject("gestion-de-pedidos", resourceCulture);
@@ -133,9 +153,39 @@ namespace SGICE.Presentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap papel {
+            get {
+                object obj = ResourceManager.GetObject("papel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap privacidad {
+            get {
+                object obj = ResourceManager.GetObject("privacidad", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap proveedor {
             get {
                 object obj = ResourceManager.GetObject("proveedor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ubicaciones {
+            get {
+                object obj = ResourceManager.GetObject("ubicaciones", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
