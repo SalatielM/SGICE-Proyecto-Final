@@ -15,11 +15,6 @@ public partial class FrmPersonal : Form
     public FrmPersonal()
     {
         InitializeComponent();
-        UIHelper.EstilarDataGridView(dgvPersonal);
-        UIHelper.EstilarBotonPrimario(btnGuardar);
-        UIHelper.EstilarBotonSecundario(btnNuevo);
-        UIHelper.EstilarBotonSecundario(btnCancelar);
-        UIHelper.EstilarBotonSecundario(btnBuscar);
     }
 
     private void FrmPersonal_Load(object? sender, EventArgs e)
@@ -77,6 +72,12 @@ public partial class FrmPersonal : Form
                 dgvPersonal.Columns["Puesto"].HeaderText = "Puesto";
             if (dgvPersonal.Columns["Estado"] != null)
                 dgvPersonal.Columns["Estado"].HeaderText = "Estado";
+
+            foreach (var col in new[] { "Foto", "PuestoId", "FechaCreacion", "FechaActualizacion", "UsuarioRegistroId", "UsuarioRegistro", "UsuarioActualizacionId", "UsuarioActualizacion", "EstadoId" })
+            {
+                if (dgvPersonal.Columns[col] != null)
+                    dgvPersonal.Columns[col].Visible = false;
+            }
         }
         catch (Exception ex)
         {

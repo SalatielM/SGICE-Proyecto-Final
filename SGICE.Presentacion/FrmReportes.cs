@@ -3,6 +3,7 @@ using SGICE.Entidades.DTOs;
 using SGICE.Entidades.Enums;
 using SGICE.Negocio.Excepciones;
 using SGICE.Negocio.Reportes;
+using SGICE.Presentacion.Utilidades;
 
 namespace SGICE.Presentacion;
 
@@ -14,30 +15,37 @@ public partial class FrmReportes : Form
     public FrmReportes()
     {
         InitializeComponent();
-        UIHelper.EstilarDataGridView(dgvReporte);
-        UIHelper.EstilarBotonPrimario(btnGenerar);
-        UIHelper.EstilarBotonExito(btnExportar);
     }
+
+
+
 
     private void FrmReportes_Load(object? sender, EventArgs e)
     {
-        CargarTiposReporte();
-        EjecutarConsultaReporte();
+        if (cmbTipoReporte.DataSource == null)
+        {
+            CargarTiposReporte();
+            EjecutarConsultaReporte();
+        }
     }
 
+    public void SeleccionarTipoReporte(TipoReporte tipo)
+    {
+        if (cmbTipoReporte.DataSource == null)
+        {
+            CargarTiposReporte();
+        }
+
+        cmbTipoReporte.SelectedItem = tipo;
+        EjecutarConsultaReporte();
+    }
     private void CargarTiposReporte()
     {
         cmbTipoReporte.DataSource = Enum.GetValues<TipoReporte>();
     }
 
-    /// <summary>
-    /// Permite preseleccionar un tipo de reporte específico y ejecutar su generación inmediata.
-    /// </summary>
-    public void SeleccionarTipoReporte(TipoReporte tipo)
-    {
-        cmbTipoReporte.SelectedItem = tipo;
-        EjecutarConsultaReporte();
-    }
+
+   
 
     private void BtnGenerar_Click(object? sender, EventArgs e)
     {
@@ -98,7 +106,7 @@ public partial class FrmReportes : Form
         {
             try
             {
-                UIHelper.ExportarDataTableACsv(_dtActual, sfd.FileName);
+                ExportadorCsv.ExportarDataTableACsv(_dtActual, sfd.FileName);
                 MessageBox.Show(
                     $"Reporte exportado exitosamente a:\n{sfd.FileName}\n\nPuede abrirlo directamente en Microsoft Excel.",
                     "Exportación Exitosa",
@@ -110,5 +118,10 @@ public partial class FrmReportes : Form
                 MessageBox.Show($"Error al exportar archivo: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+    }
+
+    private void cmbTipoReporte_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
     }
 }

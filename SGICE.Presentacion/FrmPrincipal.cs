@@ -1,4 +1,5 @@
 using SGICE.Entidades.Enums;
+using SGICE.Negocio.Operaciones;
 using SGICE.Negocio.Seguridad;
 
 namespace SGICE.Presentacion;
@@ -8,81 +9,111 @@ public partial class FrmPrincipal : Form
     public FrmPrincipal()
     {
         InitializeComponent();
-        ConfigurarEstiloVisual();
     }
 
-    #region Configuración Visual y Paleta de Colores
+    #region Navegación Acordeón y Contenedor de Formularios
 
-    private void ConfigurarEstiloVisual()
+    private void AlternarSubMenu(Panel subMenuObjetivo)
     {
-        menuStripPrincipal.Renderer = new ToolStripProfessionalRenderer(new MenuColorTable());
-
-        // Personalizar el fondo del contenedor MdiClient para un aspecto moderno
-        foreach (Control control in Controls)
+        bool mostrar = !subMenuObjetivo.Visible;
+        foreach (Control ctrl in flpMenu.Controls)
         {
-            if (control is MdiClient mdiClient)
+            if (ctrl is Panel panelSub)
             {
-                mdiClient.BackColor = Color.FromArgb(241, 245, 249); // Slate-100
-                break;
+                panelSub.Visible = false;
             }
         }
+        subMenuObjetivo.Visible = mostrar;
     }
 
-    private class MenuColorTable : ProfessionalColorTable
+    private void BtnMenuToggle_Click(object? sender, EventArgs e)
     {
-        public override Color MenuStripGradientBegin => Color.FromArgb(30, 41, 59);
-        public override Color MenuStripGradientEnd => Color.FromArgb(30, 41, 59);
-        public override Color MenuItemSelected => Color.FromArgb(51, 65, 85);
-        public override Color MenuItemSelectedGradientBegin => Color.FromArgb(51, 65, 85);
-        public override Color MenuItemSelectedGradientEnd => Color.FromArgb(51, 65, 85);
-        public override Color MenuItemPressedGradientBegin => Color.FromArgb(15, 23, 42);
-        public override Color MenuItemPressedGradientEnd => Color.FromArgb(15, 23, 42);
-        public override Color ToolStripDropDownBackground => Color.FromArgb(255, 255, 255);
-        public override Color ImageMarginGradientBegin => Color.FromArgb(248, 250, 252);
-        public override Color ImageMarginGradientMiddle => Color.FromArgb(248, 250, 252);
-        public override Color ImageMarginGradientEnd => Color.FromArgb(248, 250, 252);
-        public override Color MenuBorder => Color.FromArgb(203, 213, 225);
-        public override Color MenuItemBorder => Color.Transparent;
+        pnlSidebar.Visible = !pnlSidebar.Visible;
+    }
+
+    private void BtnMenuInicio_Click(object? sender, EventArgs e)
+    {
+        MostrarInicio();
+    }
+
+    private void BtnMenuInventario_Click(object? sender, EventArgs e) => AlternarSubMenu(pnlSubInventario);
+    private void BtnMenuMovimientos_Click(object? sender, EventArgs e) => AlternarSubMenu(pnlSubMovimientos);
+    private void BtnMenuPrestamos_Click(object? sender, EventArgs e) => AlternarSubMenu(pnlSubPrestamos);
+    private void BtnMenuMantenimiento_Click(object? sender, EventArgs e) => AlternarSubMenu(pnlSubMantenimiento);
+    private void BtnMenuAdmin_Click(object? sender, EventArgs e) => AlternarSubMenu(pnlSubAdmin);
+    private void BtnMenuReportes_Click(object? sender, EventArgs e) => AlternarSubMenu(pnlSubReportes);
+
+    private void MostrarInicio()
+    {
+        foreach (Control ctrl in pnlContenedor.Controls)
+        {
+            if (ctrl is Form f)
+            {
+                f.Hide();
+            }
+        }
+        pnlInicio.Visible = true;
+        pnlInicio.BringToFront();
+        CargarResumenInicio();
+    }
+
+    private void CargarResumenInicio()
+    {
+        try
+        {
+            var activosServ = new ActivoFisicoServicios();
+            var prestamoServ = new PrestamoServicios();
+            var solicitudServ = new SolicitudMantenimientoServicios();
+
+            lblValActivosTotales.Text = activosServ.Contar().ToString();
+            lblValDisponibles.Text = activosServ.ContarPorEstado((int)EstadoActivoFisico.Disponible).ToString();
+            lblValPrestados.Text = activosServ.ContarPorEstado((int)EstadoActivoFisico.Prestado).ToString();
+            lblValDanados.Text = activosServ.ContarPorEstado((int)EstadoActivoFisico.Dañado).ToString();
+            lblValPerdidos.Text = activosServ.ContarPorEstado((int)EstadoActivoFisico.Extraviado).ToString();
+            lblValMantenimiento.Text = activosServ.ContarPorEstado((int)EstadoActivoFisico.PendienteDeMantenimiento).ToString();
+
+            int prestamosPendientes = prestamoServ.ContarPorEstado((int)EstadoPrestamo.Vigente)
+                                    + prestamoServ.ContarPorEstado((int)EstadoPrestamo.DevueltoParcial);
+            lblValPrestamosPendientes.Text = prestamosPendientes.ToString();
+            lblValSolicitudesPendientes.Text = solicitudServ.ContarPorEstado((int)EstadoSolicitudMantenimiento.Pendiente).ToString();
+        }
+        catch
+        {
+            // En caso de no contar con conexión activa a BD al iniciar, mantener valores por defecto.
+        }
     }
 
     #endregion
 
-    #region Validación y Apertura de Instancia Única para Formularios Hijos
+    #region Apertura de Instancia Única para Formularios Hijos
 
     /// <summary>
-    /// Abre un formulario hijo MDI garantizando una única instancia en memoria.
-    /// Si el formulario ya está abierto, lo restaura y lo enfoca.
+    /// Abre un formulario hijo incrustado en el panel contenedor central garantizando una única instancia.
+    /// Si el formulario ya está abierto, lo muestra y lo enfoca.
     /// </summary>
     /// <typeparam name="T">Tipo del formulario derivado de Form.</typeparam>
     /// <returns>La instancia única del formulario.</returns>
     public T AbrirFormulario<T>() where T : Form, new()
     {
-        T? formulario = MdiChildren.OfType<T>().FirstOrDefault();
+        T? formulario = pnlContenedor.Controls.OfType<T>().FirstOrDefault();
 
         if (formulario == null)
         {
             formulario = new T
             {
-                MdiParent = this,
-                StartPosition = FormStartPosition.CenterScreen
+                TopLevel = false,
+                FormBorderStyle = FormBorderStyle.None,
+                Dock = DockStyle.Fill
             };
-            formulario.Show();
-        }
-        else
-        {
-            if (formulario.WindowState == FormWindowState.Minimized)
-            {
-                formulario.WindowState = FormWindowState.Normal;
-            }
-            formulario.BringToFront();
-            formulario.Activate();
+            pnlContenedor.Controls.Add(formulario);
         }
 
+        MostrarFormularioIncrustado(formulario);
         return formulario;
     }
 
     /// <summary>
-    /// Abre un formulario hijo MDI a partir de su tipo garantizando una única instancia.
+    /// Abre un formulario hijo incrustado en el panel contenedor central a partir de su tipo garantizando una única instancia.
     /// </summary>
     /// <param name="tipoFormulario">Tipo del formulario a instanciar.</param>
     /// <returns>La instancia del formulario.</returns>
@@ -93,26 +124,34 @@ public partial class FrmPrincipal : Form
             throw new ArgumentException("El tipo proporcionado debe heredar de Form.", nameof(tipoFormulario));
         }
 
-        Form? formulario = MdiChildren.FirstOrDefault(f => f.GetType() == tipoFormulario);
+        Form? formulario = pnlContenedor.Controls.OfType<Form>().FirstOrDefault(f => f.GetType() == tipoFormulario);
 
         if (formulario == null)
         {
             formulario = (Form)Activator.CreateInstance(tipoFormulario)!;
-            formulario.MdiParent = this;
-            formulario.StartPosition = FormStartPosition.CenterScreen;
-            formulario.Show();
-        }
-        else
-        {
-            if (formulario.WindowState == FormWindowState.Minimized)
-            {
-                formulario.WindowState = FormWindowState.Normal;
-            }
-            formulario.BringToFront();
-            formulario.Activate();
+            formulario.TopLevel = false;
+            formulario.FormBorderStyle = FormBorderStyle.None;
+            formulario.Dock = DockStyle.Fill;
+            pnlContenedor.Controls.Add(formulario);
         }
 
+        MostrarFormularioIncrustado(formulario);
         return formulario;
+    }
+
+    private void MostrarFormularioIncrustado(Form formulario)
+    {
+        pnlInicio.Visible = false;
+        foreach (Control ctrl in pnlContenedor.Controls)
+        {
+            if (ctrl is Form f && f != formulario)
+            {
+                f.Hide();
+            }
+        }
+        formulario.Show();
+        formulario.BringToFront();
+        formulario.Focus();
     }
 
     private void AbrirReporte(TipoReporte tipo)
@@ -164,12 +203,13 @@ public partial class FrmPrincipal : Form
 
     #endregion
 
-    #region Eventos del Formulario y MenuStrip
+    #region Eventos del Formulario y Navegación
 
     private void FrmPrincipal_Load(object? sender, EventArgs e)
     {
         ActualizarUsuarioActivo();
         ActualizarFechaHora();
+        MostrarInicio();
     }
 
     private void TimerFecha_Tick(object? sender, EventArgs e)
@@ -227,6 +267,7 @@ public partial class FrmPrincipal : Form
     private void ItemRepPrestamosDevoluciones_Click(object? sender, EventArgs e) => AbrirReporte(TipoReporte.Prestamos);
     private void ItemRepBajasActivos_Click(object? sender, EventArgs e) => AbrirReporte(TipoReporte.Salidas);
     private void ItemRepAuditoria_Click(object? sender, EventArgs e) => AbrirReporte(TipoReporte.Auditoria);
+    private void ItemAbrirReportes_Click(object? sender, EventArgs e) => AbrirFormulario<FrmReportes>();
 
     // --- Sistema y Ayuda ---
     private void ItemCerrarSesion_Click(object? sender, EventArgs e)

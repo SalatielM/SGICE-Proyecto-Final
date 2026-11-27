@@ -13,11 +13,6 @@ public partial class FrmProveedores : Form
     public FrmProveedores()
     {
         InitializeComponent();
-        UIHelper.EstilarDataGridView(dgvProveedores);
-        UIHelper.EstilarBotonPrimario(btnGuardar);
-        UIHelper.EstilarBotonSecundario(btnNuevo);
-        UIHelper.EstilarBotonSecundario(btnCancelar);
-        UIHelper.EstilarBotonSecundario(btnBuscar);
     }
 
     private void FrmProveedores_Load(object? sender, EventArgs e)
@@ -57,6 +52,12 @@ public partial class FrmProveedores : Form
                 dgvProveedores.Columns["Direccion"].HeaderText = "Dirección";
             if (dgvProveedores.Columns["Estado"] != null)
                 dgvProveedores.Columns["Estado"].HeaderText = "Estado";
+
+            foreach (var col in new[] { "FechaCreacion", "FechaActualizacion", "UsuarioRegistroId", "UsuarioRegistro", "UsuarioActualizacionId", "UsuarioActualizacion", "EstadoId" })
+            {
+                if (dgvProveedores.Columns[col] != null)
+                    dgvProveedores.Columns[col].Visible = false;
+            }
         }
         catch (Exception ex)
         {

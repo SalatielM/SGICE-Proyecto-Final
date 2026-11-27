@@ -13,8 +13,6 @@ public partial class FrmCentrosEducativos : Form
     public FrmCentrosEducativos()
     {
         InitializeComponent();
-        UIHelper.EstilarBotonPrimario(btnGuardar);
-        UIHelper.EstilarBotonSecundario(btnRecargar);
     }
 
     private void FrmCentrosEducativos_Load(object? sender, EventArgs e)

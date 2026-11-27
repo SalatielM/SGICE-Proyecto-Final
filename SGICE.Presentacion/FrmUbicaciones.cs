@@ -14,11 +14,6 @@ public partial class FrmUbicaciones : Form
     public FrmUbicaciones()
     {
         InitializeComponent();
-        UIHelper.EstilarDataGridView(dgvUbicaciones);
-        UIHelper.EstilarBotonPrimario(btnGuardar);
-        UIHelper.EstilarBotonSecundario(btnNuevo);
-        UIHelper.EstilarBotonSecundario(btnCancelar);
-        UIHelper.EstilarBotonSecundario(btnBuscar);
     }
 
     private void FrmUbicaciones_Load(object? sender, EventArgs e)
@@ -74,6 +69,12 @@ public partial class FrmUbicaciones : Form
                 dgvUbicaciones.Columns["Estado"].HeaderText = "Estado";
             if (dgvUbicaciones.Columns["EdificioId"] != null)
                 dgvUbicaciones.Columns["EdificioId"].Visible = false;
+
+            foreach (var col in new[] { "FechaCreacion", "FechaActualizacion", "UsuarioRegistroId", "UsuarioRegistro", "UsuarioActualizacionId", "UsuarioActualizacion", "EstadoId" })
+            {
+                if (dgvUbicaciones.Columns[col] != null)
+                    dgvUbicaciones.Columns[col].Visible = false;
+            }
         }
         catch (Exception ex)
         {

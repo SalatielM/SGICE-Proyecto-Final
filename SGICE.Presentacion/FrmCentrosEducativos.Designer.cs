@@ -21,7 +21,8 @@ partial class FrmCentrosEducativos
         errorProvider = new ErrorProvider(components);
         pnlTop = new Panel();
         lblTitulo = new Label();
-        pnlContenedor = new Panel();
+        pnlDatosContainer = new Panel();
+        grpDatos = new GroupBox();
         lblNombre = new Label();
         txtNombre = new TextBox();
         lblCodigo = new Label();
@@ -30,21 +31,22 @@ partial class FrmCentrosEducativos
         txtTelefono = new TextBox();
         lblCorreo = new Label();
         txtCorreo = new TextBox();
-        lblDireccion = new Label();
-        txtDireccion = new TextBox();
+        lblDirector = new Label();
+        cmbDirector = new ComboBox();
         lblDistrito = new Label();
         txtDistrito = new TextBox();
         lblRegional = new Label();
         txtRegional = new TextBox();
-        lblDirector = new Label();
-        cmbDirector = new ComboBox();
-        btnGuardar = new Button();
+        lblDireccion = new Label();
+        txtDireccion = new TextBox();
+        pnlAcciones = new Panel();
         btnRecargar = new Button();
-        pictureBox1 = new PictureBox();
+        btnGuardar = new Button();
         ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
         pnlTop.SuspendLayout();
-        pnlContenedor.SuspendLayout();
-        ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+        pnlDatosContainer.SuspendLayout();
+        grpDatos.SuspendLayout();
+        pnlAcciones.SuspendLayout();
         SuspendLayout();
         // 
         // errorProvider
@@ -53,261 +55,300 @@ partial class FrmCentrosEducativos
         // 
         // pnlTop
         // 
-        pnlTop.BackColor = Color.Purple;
-        pnlTop.Controls.Add(pictureBox1);
+        pnlTop.BackColor = Color.FromArgb(142, 177, 209);
         pnlTop.Controls.Add(lblTitulo);
         pnlTop.Dock = DockStyle.Top;
         pnlTop.Location = new Point(0, 0);
         pnlTop.Name = "pnlTop";
-        pnlTop.Size = new Size(720, 85);
+        pnlTop.Size = new Size(840, 32);
         pnlTop.TabIndex = 0;
         // 
         // lblTitulo
         // 
-        lblTitulo.AutoSize = true;
-        lblTitulo.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        lblTitulo.ForeColor = Color.White;
-        lblTitulo.Location = new Point(190, 23);
+        lblTitulo.Dock = DockStyle.Fill;
+        lblTitulo.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+        lblTitulo.ForeColor = Color.Black;
+        lblTitulo.Location = new Point(0, 0);
         lblTitulo.Name = "lblTitulo";
-        lblTitulo.Size = new Size(416, 31);
+        lblTitulo.Size = new Size(840, 32);
         lblTitulo.TabIndex = 0;
-        lblTitulo.Text = "Información del Centro Educativo";
+        lblTitulo.Text = "INFORMACIÓN DEL CENTRO EDUCATIVO";
+        lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
         // 
-        // pnlContenedor
+        // pnlDatosContainer
         // 
-        pnlContenedor.BackColor = Color.White;
-        pnlContenedor.Controls.Add(lblNombre);
-        pnlContenedor.Controls.Add(txtNombre);
-        pnlContenedor.Controls.Add(lblCodigo);
-        pnlContenedor.Controls.Add(txtCodigo);
-        pnlContenedor.Controls.Add(lblTelefono);
-        pnlContenedor.Controls.Add(txtTelefono);
-        pnlContenedor.Controls.Add(lblCorreo);
-        pnlContenedor.Controls.Add(txtCorreo);
-        pnlContenedor.Controls.Add(lblDireccion);
-        pnlContenedor.Controls.Add(txtDireccion);
-        pnlContenedor.Controls.Add(lblDistrito);
-        pnlContenedor.Controls.Add(txtDistrito);
-        pnlContenedor.Controls.Add(lblRegional);
-        pnlContenedor.Controls.Add(txtRegional);
-        pnlContenedor.Controls.Add(lblDirector);
-        pnlContenedor.Controls.Add(cmbDirector);
-        pnlContenedor.Controls.Add(btnGuardar);
-        pnlContenedor.Controls.Add(btnRecargar);
-        pnlContenedor.Dock = DockStyle.Fill;
-        pnlContenedor.Location = new Point(0, 85);
-        pnlContenedor.Name = "pnlContenedor";
-        pnlContenedor.Padding = new Padding(30, 20, 30, 20);
-        pnlContenedor.Size = new Size(720, 445);
-        pnlContenedor.TabIndex = 1;
+        pnlDatosContainer.BackColor = SystemColors.Control;
+        pnlDatosContainer.Controls.Add(grpDatos);
+        pnlDatosContainer.Dock = DockStyle.Top;
+        pnlDatosContainer.Location = new Point(0, 32);
+        pnlDatosContainer.Name = "pnlDatosContainer";
+        pnlDatosContainer.Padding = new Padding(8, 6, 8, 2);
+        pnlDatosContainer.Size = new Size(840, 196);
+        pnlDatosContainer.TabIndex = 1;
+        // 
+        // grpDatos
+        // 
+        grpDatos.BackColor = SystemColors.Control;
+        grpDatos.Controls.Add(lblNombre);
+        grpDatos.Controls.Add(txtNombre);
+        grpDatos.Controls.Add(lblCodigo);
+        grpDatos.Controls.Add(txtCodigo);
+        grpDatos.Controls.Add(lblTelefono);
+        grpDatos.Controls.Add(txtTelefono);
+        grpDatos.Controls.Add(lblCorreo);
+        grpDatos.Controls.Add(txtCorreo);
+        grpDatos.Controls.Add(lblDirector);
+        grpDatos.Controls.Add(cmbDirector);
+        grpDatos.Controls.Add(lblDistrito);
+        grpDatos.Controls.Add(txtDistrito);
+        grpDatos.Controls.Add(lblRegional);
+        grpDatos.Controls.Add(txtRegional);
+        grpDatos.Controls.Add(lblDireccion);
+        grpDatos.Controls.Add(txtDireccion);
+        grpDatos.Dock = DockStyle.Fill;
+        grpDatos.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        grpDatos.ForeColor = Color.Black;
+        grpDatos.Location = new Point(8, 6);
+        grpDatos.Name = "grpDatos";
+        grpDatos.Size = new Size(824, 188);
+        grpDatos.TabIndex = 0;
+        grpDatos.TabStop = false;
+        grpDatos.Text = "Datos del Centro Educativo";
         // 
         // lblNombre
         // 
         lblNombre.AutoSize = true;
-        lblNombre.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-        lblNombre.ForeColor = Color.FromArgb(51, 65, 85);
-        lblNombre.Location = new Point(30, 20);
+        lblNombre.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        lblNombre.ForeColor = Color.Black;
+        lblNombre.Location = new Point(12, 26);
         lblNombre.Name = "lblNombre";
-        lblNombre.Size = new Size(111, 15);
+        lblNombre.Size = new Size(57, 15);
         lblNombre.TabIndex = 0;
-        lblNombre.Text = "Nombre del Centro:";
+        lblNombre.Text = "Nombre:";
         // 
         // txtNombre
         // 
-        txtNombre.Font = new Font("Segoe UI", 9.5F);
-        txtNombre.Location = new Point(30, 38);
+        txtNombre.BackColor = SystemColors.Window;
+        txtNombre.BorderStyle = BorderStyle.FixedSingle;
+        txtNombre.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
+        txtNombre.Location = new Point(98, 23);
         txtNombre.Name = "txtNombre";
-        txtNombre.Size = new Size(650, 24);
+        txtNombre.Size = new Size(340, 23);
         txtNombre.TabIndex = 1;
         // 
         // lblCodigo
         // 
         lblCodigo.AutoSize = true;
-        lblCodigo.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-        lblCodigo.ForeColor = Color.FromArgb(51, 65, 85);
-        lblCodigo.Location = new Point(30, 75);
+        lblCodigo.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        lblCodigo.ForeColor = Color.Black;
+        lblCodigo.Location = new Point(454, 26);
         lblCodigo.Name = "lblCodigo";
-        lblCodigo.Size = new Size(86, 15);
+        lblCodigo.Size = new Size(51, 15);
         lblCodigo.TabIndex = 2;
-        lblCodigo.Text = "Código Centro:";
+        lblCodigo.Text = "Código:";
         // 
         // txtCodigo
         // 
-        txtCodigo.Font = new Font("Segoe UI", 9.5F);
-        txtCodigo.Location = new Point(30, 93);
+        txtCodigo.BackColor = SystemColors.Window;
+        txtCodigo.BorderStyle = BorderStyle.FixedSingle;
+        txtCodigo.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
+        txtCodigo.Location = new Point(511, 23);
         txtCodigo.Name = "txtCodigo";
-        txtCodigo.Size = new Size(310, 24);
+        txtCodigo.Size = new Size(120, 23);
         txtCodigo.TabIndex = 3;
         // 
         // lblTelefono
         // 
         lblTelefono.AutoSize = true;
-        lblTelefono.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-        lblTelefono.ForeColor = Color.FromArgb(51, 65, 85);
-        lblTelefono.Location = new Point(370, 75);
+        lblTelefono.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        lblTelefono.ForeColor = Color.Black;
+        lblTelefono.Location = new Point(646, 26);
         lblTelefono.Name = "lblTelefono";
-        lblTelefono.Size = new Size(56, 15);
+        lblTelefono.Size = new Size(60, 15);
         lblTelefono.TabIndex = 4;
         lblTelefono.Text = "Teléfono:";
         // 
         // txtTelefono
         // 
-        txtTelefono.Font = new Font("Segoe UI", 9.5F);
-        txtTelefono.Location = new Point(370, 93);
+        txtTelefono.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        txtTelefono.BackColor = SystemColors.Window;
+        txtTelefono.BorderStyle = BorderStyle.FixedSingle;
+        txtTelefono.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
+        txtTelefono.Location = new Point(712, 23);
         txtTelefono.Name = "txtTelefono";
-        txtTelefono.Size = new Size(310, 24);
+        txtTelefono.Size = new Size(98, 23);
         txtTelefono.TabIndex = 5;
         // 
         // lblCorreo
         // 
         lblCorreo.AutoSize = true;
-        lblCorreo.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-        lblCorreo.ForeColor = Color.FromArgb(51, 65, 85);
-        lblCorreo.Location = new Point(30, 130);
+        lblCorreo.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        lblCorreo.ForeColor = Color.Black;
+        lblCorreo.Location = new Point(12, 58);
         lblCorreo.Name = "lblCorreo";
-        lblCorreo.Size = new Size(107, 15);
+        lblCorreo.Size = new Size(49, 15);
         lblCorreo.TabIndex = 6;
-        lblCorreo.Text = "Correo Electrónico:";
+        lblCorreo.Text = "Correo:";
         // 
         // txtCorreo
         // 
-        txtCorreo.Font = new Font("Segoe UI", 9.5F);
-        txtCorreo.Location = new Point(30, 148);
+        txtCorreo.BackColor = SystemColors.Window;
+        txtCorreo.BorderStyle = BorderStyle.FixedSingle;
+        txtCorreo.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
+        txtCorreo.Location = new Point(98, 55);
         txtCorreo.Name = "txtCorreo";
-        txtCorreo.Size = new Size(310, 24);
+        txtCorreo.Size = new Size(340, 23);
         txtCorreo.TabIndex = 7;
-        // 
-        // lblDireccion
-        // 
-        lblDireccion.AutoSize = true;
-        lblDireccion.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-        lblDireccion.ForeColor = Color.FromArgb(51, 65, 85);
-        lblDireccion.Location = new Point(30, 240);
-        lblDireccion.Name = "lblDireccion";
-        lblDireccion.Size = new Size(61, 15);
-        lblDireccion.TabIndex = 14;
-        lblDireccion.Text = "Dirección:";
-        // 
-        // txtDireccion
-        // 
-        txtDireccion.Font = new Font("Segoe UI", 9.5F);
-        txtDireccion.Location = new Point(30, 258);
-        txtDireccion.Multiline = true;
-        txtDireccion.Name = "txtDireccion";
-        txtDireccion.Size = new Size(650, 60);
-        txtDireccion.TabIndex = 15;
-        // 
-        // lblDistrito
-        // 
-        lblDistrito.AutoSize = true;
-        lblDistrito.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-        lblDistrito.ForeColor = Color.FromArgb(51, 65, 85);
-        lblDistrito.Location = new Point(30, 185);
-        lblDistrito.Name = "lblDistrito";
-        lblDistrito.Size = new Size(104, 15);
-        lblDistrito.TabIndex = 10;
-        lblDistrito.Text = "Distrito Educativo:";
-        // 
-        // txtDistrito
-        // 
-        txtDistrito.Font = new Font("Segoe UI", 9.5F);
-        txtDistrito.Location = new Point(30, 203);
-        txtDistrito.Name = "txtDistrito";
-        txtDistrito.Size = new Size(310, 24);
-        txtDistrito.TabIndex = 11;
-        // 
-        // lblRegional
-        // 
-        lblRegional.AutoSize = true;
-        lblRegional.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-        lblRegional.ForeColor = Color.FromArgb(51, 65, 85);
-        lblRegional.Location = new Point(370, 185);
-        lblRegional.Name = "lblRegional";
-        lblRegional.Size = new Size(111, 15);
-        lblRegional.TabIndex = 12;
-        lblRegional.Text = "Regional Educativo:";
-        // 
-        // txtRegional
-        // 
-        txtRegional.Font = new Font("Segoe UI", 9.5F);
-        txtRegional.Location = new Point(370, 203);
-        txtRegional.Name = "txtRegional";
-        txtRegional.Size = new Size(310, 24);
-        txtRegional.TabIndex = 13;
         // 
         // lblDirector
         // 
         lblDirector.AutoSize = true;
-        lblDirector.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-        lblDirector.ForeColor = Color.FromArgb(51, 65, 85);
-        lblDirector.Location = new Point(370, 130);
+        lblDirector.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        lblDirector.ForeColor = Color.Black;
+        lblDirector.Location = new Point(454, 58);
         lblDirector.Name = "lblDirector";
-        lblDirector.Size = new Size(53, 15);
+        lblDirector.Size = new Size(55, 15);
         lblDirector.TabIndex = 8;
         lblDirector.Text = "Director:";
         // 
         // cmbDirector
         // 
+        cmbDirector.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        cmbDirector.BackColor = SystemColors.Window;
         cmbDirector.DropDownStyle = ComboBoxStyle.DropDownList;
-        cmbDirector.Font = new Font("Segoe UI", 9.5F);
+        cmbDirector.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
         cmbDirector.FormattingEnabled = true;
-        cmbDirector.Items.AddRange(new object[] { "Lic. Salatiel Y. Matos", "Lic. Luis A. Feliz" });
-        cmbDirector.Location = new Point(370, 148);
+        cmbDirector.Location = new Point(515, 55);
         cmbDirector.Name = "cmbDirector";
-        cmbDirector.Size = new Size(310, 25);
+        cmbDirector.Size = new Size(295, 23);
         cmbDirector.TabIndex = 9;
         // 
-        // btnGuardar
+        // lblDistrito
         // 
-        btnGuardar.BackColor = SystemColors.ActiveBorder;
-        btnGuardar.Location = new Point(30, 340);
-        btnGuardar.Name = "btnGuardar";
-        btnGuardar.Size = new Size(150, 38);
-        btnGuardar.TabIndex = 16;
-        btnGuardar.Text = "Guardar Cambios";
-        btnGuardar.UseVisualStyleBackColor = false;
-        btnGuardar.Click += BtnGuardar_Click;
+        lblDistrito.AutoSize = true;
+        lblDistrito.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        lblDistrito.ForeColor = Color.Black;
+        lblDistrito.Location = new Point(12, 90);
+        lblDistrito.Name = "lblDistrito";
+        lblDistrito.Size = new Size(51, 15);
+        lblDistrito.TabIndex = 10;
+        lblDistrito.Text = "Distrito:";
+        // 
+        // txtDistrito
+        // 
+        txtDistrito.BackColor = SystemColors.Window;
+        txtDistrito.BorderStyle = BorderStyle.FixedSingle;
+        txtDistrito.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
+        txtDistrito.Location = new Point(98, 87);
+        txtDistrito.Name = "txtDistrito";
+        txtDistrito.Size = new Size(340, 23);
+        txtDistrito.TabIndex = 11;
+        // 
+        // lblRegional
+        // 
+        lblRegional.AutoSize = true;
+        lblRegional.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        lblRegional.ForeColor = Color.Black;
+        lblRegional.Location = new Point(454, 90);
+        lblRegional.Name = "lblRegional";
+        lblRegional.Size = new Size(60, 15);
+        lblRegional.TabIndex = 12;
+        lblRegional.Text = "Regional:";
+        // 
+        // txtRegional
+        // 
+        txtRegional.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        txtRegional.BackColor = SystemColors.Window;
+        txtRegional.BorderStyle = BorderStyle.FixedSingle;
+        txtRegional.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
+        txtRegional.Location = new Point(520, 87);
+        txtRegional.Name = "txtRegional";
+        txtRegional.Size = new Size(290, 23);
+        txtRegional.TabIndex = 13;
+        // 
+        // lblDireccion
+        // 
+        lblDireccion.AutoSize = true;
+        lblDireccion.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        lblDireccion.ForeColor = Color.Black;
+        lblDireccion.Location = new Point(12, 126);
+        lblDireccion.Name = "lblDireccion";
+        lblDireccion.Size = new Size(64, 15);
+        lblDireccion.TabIndex = 14;
+        lblDireccion.Text = "Dirección:";
+        // 
+        // txtDireccion
+        // 
+        txtDireccion.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        txtDireccion.BackColor = SystemColors.Window;
+        txtDireccion.BorderStyle = BorderStyle.FixedSingle;
+        txtDireccion.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
+        txtDireccion.Location = new Point(98, 124);
+        txtDireccion.Multiline = true;
+        txtDireccion.Name = "txtDireccion";
+        txtDireccion.Size = new Size(712, 45);
+        txtDireccion.TabIndex = 15;
+        // 
+        // pnlAcciones
+        // 
+        pnlAcciones.BackColor = SystemColors.Control;
+        pnlAcciones.Controls.Add(btnRecargar);
+        pnlAcciones.Controls.Add(btnGuardar);
+        pnlAcciones.Dock = DockStyle.Top;
+        pnlAcciones.Location = new Point(0, 228);
+        pnlAcciones.Name = "pnlAcciones";
+        pnlAcciones.Size = new Size(840, 40);
+        pnlAcciones.TabIndex = 2;
         // 
         // btnRecargar
         // 
-        btnRecargar.BackColor = Color.MediumSpringGreen;
-        btnRecargar.Location = new Point(190, 340);
+        btnRecargar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        btnRecargar.BackColor = Color.FromArgb(224, 247, 250);
+        btnRecargar.FlatStyle = FlatStyle.Standard;
+        btnRecargar.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        btnRecargar.ForeColor = Color.Black;
+        btnRecargar.Location = new Point(616, 6);
         btnRecargar.Name = "btnRecargar";
-        btnRecargar.Size = new Size(120, 38);
-        btnRecargar.TabIndex = 17;
-        btnRecargar.Text = "Cargar";
+        btnRecargar.Size = new Size(105, 28);
+        btnRecargar.TabIndex = 0;
+        btnRecargar.Text = "Recargar";
         btnRecargar.UseVisualStyleBackColor = false;
         btnRecargar.Click += BtnRecargar_Click;
         // 
-        // pictureBox1
+        // btnGuardar
         // 
-        pictureBox1.Image = Properties.Resources.historial_medico;
-        pictureBox1.Location = new Point(30, 6);
-        pictureBox1.Name = "pictureBox1";
-        pictureBox1.Size = new Size(86, 76);
-        pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-        pictureBox1.TabIndex = 1;
-        pictureBox1.TabStop = false;
+        btnGuardar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        btnGuardar.BackColor = Color.FromArgb(232, 245, 233);
+        btnGuardar.FlatStyle = FlatStyle.Standard;
+        btnGuardar.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        btnGuardar.ForeColor = Color.Black;
+        btnGuardar.Location = new Point(727, 6);
+        btnGuardar.Name = "btnGuardar";
+        btnGuardar.Size = new Size(105, 28);
+        btnGuardar.TabIndex = 1;
+        btnGuardar.Text = "Guardar";
+        btnGuardar.UseVisualStyleBackColor = false;
+        btnGuardar.Click += BtnGuardar_Click;
         // 
         // FrmCentrosEducativos
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(720, 530);
-        Controls.Add(pnlContenedor);
+        BackColor = SystemColors.Control;
+        ClientSize = new Size(840, 480);
+        Controls.Add(pnlAcciones);
+        Controls.Add(pnlDatosContainer);
         Controls.Add(pnlTop);
-        FormBorderStyle = FormBorderStyle.FixedDialog;
-        MaximizeBox = false;
         Name = "FrmCentrosEducativos";
         StartPosition = FormStartPosition.CenterScreen;
         Text = "Datos del Centro Educativo";
         Load += FrmCentrosEducativos_Load;
         ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
         pnlTop.ResumeLayout(false);
-        pnlTop.PerformLayout();
-        pnlContenedor.ResumeLayout(false);
-        pnlContenedor.PerformLayout();
-        ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+        pnlDatosContainer.ResumeLayout(false);
+        grpDatos.ResumeLayout(false);
+        grpDatos.PerformLayout();
+        pnlAcciones.ResumeLayout(false);
         ResumeLayout(false);
     }
 
@@ -316,7 +357,8 @@ partial class FrmCentrosEducativos
     private ErrorProvider errorProvider;
     private Panel pnlTop;
     private Label lblTitulo;
-    private Panel pnlContenedor;
+    private Panel pnlDatosContainer;
+    private GroupBox grpDatos;
     private Label lblNombre;
     private TextBox txtNombre;
     private Label lblCodigo;
@@ -325,15 +367,15 @@ partial class FrmCentrosEducativos
     private TextBox txtTelefono;
     private Label lblCorreo;
     private TextBox txtCorreo;
-    private Label lblDireccion;
-    private TextBox txtDireccion;
+    private Label lblDirector;
+    private ComboBox cmbDirector;
     private Label lblDistrito;
     private TextBox txtDistrito;
     private Label lblRegional;
     private TextBox txtRegional;
-    private Label lblDirector;
-    private ComboBox cmbDirector;
+    private Label lblDireccion;
+    private TextBox txtDireccion;
+    private Panel pnlAcciones;
     private Button btnGuardar;
     private Button btnRecargar;
-    private PictureBox pictureBox1;
 }

@@ -13,11 +13,6 @@ public partial class FrmEdificios : Form
     public FrmEdificios()
     {
         InitializeComponent();
-        UIHelper.EstilarDataGridView(dgvEdificios);
-        UIHelper.EstilarBotonPrimario(btnGuardar);
-        UIHelper.EstilarBotonSecundario(btnNuevo);
-        UIHelper.EstilarBotonSecundario(btnCancelar);
-        UIHelper.EstilarBotonSecundario(btnBuscar);
     }
 
     private void FrmEdificios_Load(object? sender, EventArgs e)
@@ -53,6 +48,12 @@ public partial class FrmEdificios : Form
                 dgvEdificios.Columns["Descripcion"].HeaderText = "Descripción";
             if (dgvEdificios.Columns["Estado"] != null)
                 dgvEdificios.Columns["Estado"].HeaderText = "Estado";
+
+            foreach (var col in new[] { "FechaCreacion", "FechaActualizacion", "UsuarioRegistroId", "UsuarioRegistro", "UsuarioActualizacionId", "UsuarioActualizacion", "EstadoId" })
+            {
+                if (dgvEdificios.Columns[col] != null)
+                    dgvEdificios.Columns[col].Visible = false;
+            }
         }
         catch (Exception ex)
         {

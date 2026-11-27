@@ -13,11 +13,6 @@ public partial class FrmMarcas : Form
     public FrmMarcas()
     {
         InitializeComponent();
-        UIHelper.EstilarDataGridView(dgvMarcas);
-        UIHelper.EstilarBotonPrimario(btnGuardar);
-        UIHelper.EstilarBotonSecundario(btnNuevo);
-        UIHelper.EstilarBotonSecundario(btnCancelar);
-        UIHelper.EstilarBotonSecundario(btnBuscar);
     }
 
     private void FrmMarcas_Load(object? sender, EventArgs e)
@@ -49,6 +44,12 @@ public partial class FrmMarcas : Form
                 dgvMarcas.Columns["Descripcion"].HeaderText = "Descripción";
             if (dgvMarcas.Columns["Estado"] != null)
                 dgvMarcas.Columns["Estado"].HeaderText = "Estado";
+
+            foreach (var col in new[] { "FechaCreacion", "FechaActualizacion", "UsuarioRegistroId", "UsuarioRegistro", "UsuarioActualizacionId", "UsuarioActualizacion", "EstadoId" })
+            {
+                if (dgvMarcas.Columns[col] != null)
+                    dgvMarcas.Columns[col].Visible = false;
+            }
         }
         catch (Exception ex)
         {

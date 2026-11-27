@@ -13,11 +13,6 @@ public partial class FrmCategorias : Form
     public FrmCategorias()
     {
         InitializeComponent();
-        UIHelper.EstilarDataGridView(dgvCategorias);
-        UIHelper.EstilarBotonPrimario(btnGuardar);
-        UIHelper.EstilarBotonSecundario(btnNuevo);
-        UIHelper.EstilarBotonSecundario(btnCancelar);
-        UIHelper.EstilarBotonSecundario(btnBuscar);
     }
 
     private void FrmCategorias_Load(object? sender, EventArgs e)
@@ -51,6 +46,12 @@ public partial class FrmCategorias : Form
                 dgvCategorias.Columns["Descripcion"].HeaderText = "Descripción";
             if (dgvCategorias.Columns["FechaRegistro"] != null)
                 dgvCategorias.Columns["FechaRegistro"].HeaderText = "Fecha Reg.";
+
+            foreach (var col in new[] { "FechaCreacion", "FechaActualizacion", "UsuarioRegistroId", "UsuarioRegistro", "UsuarioActualizacionId", "UsuarioActualizacion", "EstadoId" })
+            {
+                if (dgvCategorias.Columns[col] != null)
+                    dgvCategorias.Columns[col].Visible = false;
+            }
         }
         catch (Exception ex)
         {

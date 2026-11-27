@@ -14,11 +14,6 @@ public partial class FrmUsuarios : Form
     public FrmUsuarios()
     {
         InitializeComponent();
-        UIHelper.EstilarDataGridView(dgvUsuarios);
-        UIHelper.EstilarBotonPrimario(btnGuardar);
-        UIHelper.EstilarBotonSecundario(btnNuevo);
-        UIHelper.EstilarBotonSecundario(btnCancelar);
-        UIHelper.EstilarBotonSecundario(btnBuscar);
     }
 
     private void FrmUsuarios_Load(object? sender, EventArgs e)
@@ -78,6 +73,12 @@ public partial class FrmUsuarios : Form
                 dgvUsuarios.Columns["Estado"].HeaderText = "Estado";
             if (dgvUsuarios.Columns["Foto"] != null)
                 dgvUsuarios.Columns["Foto"].Visible = false;
+
+            foreach (var col in new[] { "RolId", "FechaCreacion", "FechaActualizacion", "UsuarioRegistroId", "UsuarioRegistro", "UsuarioActualizacionId", "UsuarioActualizacion", "EstadoId" })
+            {
+                if (dgvUsuarios.Columns[col] != null)
+                    dgvUsuarios.Columns[col].Visible = false;
+            }
         }
         catch (Exception ex)
         {

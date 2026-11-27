@@ -18,30 +18,36 @@ partial class FrmMarcas
     private void InitializeComponent()
     {
         components = new System.ComponentModel.Container();
-        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMarcas));
+        DataGridViewCellStyle dgvHeaderStyle = new DataGridViewCellStyle();
+        DataGridViewCellStyle dgvCellStyle = new DataGridViewCellStyle();
         errorProvider = new ErrorProvider(components);
         pnlTop = new Panel();
         lblTitulo = new Label();
         pnlFiltro = new Panel();
-        lblBuscar = new Label();
         txtBuscar = new TextBox();
         btnBuscar = new Button();
-        pnlDatos = new Panel();
+        pnlDatosContainer = new Panel();
+        grpDatos = new GroupBox();
         lblNombre = new Label();
         txtNombre = new TextBox();
         lblDescripcion = new Label();
         txtDescripcion = new TextBox();
+        pnlAcciones = new Panel();
         btnNuevo = new Button();
         btnGuardar = new Button();
         btnCancelar = new Button();
+        pnlListaContainer = new Panel();
+        grpLista = new GroupBox();
         dgvMarcas = new DataGridView();
-        pictureBox1 = new PictureBox();
         ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
         pnlTop.SuspendLayout();
         pnlFiltro.SuspendLayout();
-        pnlDatos.SuspendLayout();
+        pnlDatosContainer.SuspendLayout();
+        grpDatos.SuspendLayout();
+        pnlAcciones.SuspendLayout();
+        pnlListaContainer.SuspendLayout();
+        grpLista.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)dgvMarcas).BeginInit();
-        ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
         SuspendLayout();
         // 
         // errorProvider
@@ -50,186 +56,270 @@ partial class FrmMarcas
         // 
         // pnlTop
         // 
-        pnlTop.BackColor = Color.FromArgb(192, 0, 192);
-        pnlTop.Controls.Add(pictureBox1);
+        pnlTop.BackColor = Color.FromArgb(142, 177, 209);
         pnlTop.Controls.Add(lblTitulo);
         pnlTop.Dock = DockStyle.Top;
         pnlTop.Location = new Point(0, 0);
         pnlTop.Name = "pnlTop";
-        pnlTop.Size = new Size(860, 80);
+        pnlTop.Size = new Size(880, 32);
         pnlTop.TabIndex = 0;
         // 
         // lblTitulo
         // 
-        lblTitulo.AutoSize = true;
-        lblTitulo.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        lblTitulo.ForeColor = Color.White;
-        lblTitulo.Location = new Point(353, 25);
+        lblTitulo.Dock = DockStyle.Fill;
+        lblTitulo.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+        lblTitulo.ForeColor = Color.Black;
+        lblTitulo.Location = new Point(0, 0);
         lblTitulo.Name = "lblTitulo";
-        lblTitulo.Size = new Size(249, 31);
+        lblTitulo.Size = new Size(880, 32);
         lblTitulo.TabIndex = 0;
-        lblTitulo.Text = "Catálogo de Marcas";
+        lblTitulo.Text = "REGISTRO DE MARCAS";
+        lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // pnlFiltro
         // 
-        pnlFiltro.BackColor = Color.FromArgb(248, 250, 252);
-        pnlFiltro.Controls.Add(lblBuscar);
+        pnlFiltro.BackColor = SystemColors.Control;
         pnlFiltro.Controls.Add(txtBuscar);
         pnlFiltro.Controls.Add(btnBuscar);
         pnlFiltro.Dock = DockStyle.Top;
-        pnlFiltro.Location = new Point(0, 80);
+        pnlFiltro.Location = new Point(0, 32);
         pnlFiltro.Name = "pnlFiltro";
-        pnlFiltro.Padding = new Padding(16, 10, 16, 10);
-        pnlFiltro.Size = new Size(860, 46);
+        pnlFiltro.Padding = new Padding(8, 6, 8, 4);
+        pnlFiltro.Size = new Size(880, 36);
         pnlFiltro.TabIndex = 1;
-        // 
-        // lblBuscar
-        // 
-        lblBuscar.AutoSize = true;
-        lblBuscar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-        lblBuscar.ForeColor = Color.FromArgb(51, 65, 85);
-        lblBuscar.Location = new Point(16, 15);
-        lblBuscar.Name = "lblBuscar";
-        lblBuscar.Size = new Size(45, 15);
-        lblBuscar.TabIndex = 0;
-        lblBuscar.Text = "Buscar:";
         // 
         // txtBuscar
         // 
-        txtBuscar.Font = new Font("Segoe UI", 9.5F);
-        txtBuscar.Location = new Point(67, 10);
+        txtBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        txtBuscar.BackColor = SystemColors.Window;
+        txtBuscar.BorderStyle = BorderStyle.FixedSingle;
+        txtBuscar.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
+        txtBuscar.Location = new Point(8, 7);
         txtBuscar.Name = "txtBuscar";
-        txtBuscar.PlaceholderText = "Nombre";
-        txtBuscar.Size = new Size(280, 24);
-        txtBuscar.TabIndex = 1;
+        txtBuscar.PlaceholderText = "Buscar...";
+        txtBuscar.Size = new Size(828, 23);
+        txtBuscar.TabIndex = 0;
         txtBuscar.TextChanged += TxtBuscar_TextChanged;
         // 
         // btnBuscar
         // 
-        btnBuscar.BackColor = SystemColors.ActiveBorder;
-        btnBuscar.Location = new Point(353, 10);
+        btnBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        btnBuscar.BackColor = SystemColors.Control;
+        btnBuscar.FlatStyle = FlatStyle.Standard;
+        btnBuscar.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        btnBuscar.ForeColor = Color.Black;
+        btnBuscar.Location = new Point(842, 6);
         btnBuscar.Name = "btnBuscar";
-        btnBuscar.Size = new Size(80, 26);
-        btnBuscar.TabIndex = 2;
-        btnBuscar.Text = "Buscar";
-        btnBuscar.UseVisualStyleBackColor = false;
+        btnBuscar.Size = new Size(30, 24);
+        btnBuscar.TabIndex = 1;
+        btnBuscar.Text = "🔍";
+        btnBuscar.UseVisualStyleBackColor = true;
         btnBuscar.Click += BtnBuscar_Click;
         // 
-        // pnlDatos
+        // pnlDatosContainer
         // 
-        pnlDatos.BackColor = Color.White;
-        pnlDatos.Controls.Add(lblNombre);
-        pnlDatos.Controls.Add(txtNombre);
-        pnlDatos.Controls.Add(lblDescripcion);
-        pnlDatos.Controls.Add(txtDescripcion);
-        pnlDatos.Controls.Add(btnNuevo);
-        pnlDatos.Controls.Add(btnGuardar);
-        pnlDatos.Controls.Add(btnCancelar);
-        pnlDatos.Dock = DockStyle.Right;
-        pnlDatos.Location = new Point(540, 126);
-        pnlDatos.Name = "pnlDatos";
-        pnlDatos.Padding = new Padding(16);
-        pnlDatos.Size = new Size(320, 435);
-        pnlDatos.TabIndex = 2;
+        pnlDatosContainer.BackColor = SystemColors.Control;
+        pnlDatosContainer.Controls.Add(grpDatos);
+        pnlDatosContainer.Dock = DockStyle.Top;
+        pnlDatosContainer.Location = new Point(0, 68);
+        pnlDatosContainer.Name = "pnlDatosContainer";
+        pnlDatosContainer.Padding = new Padding(8, 2, 8, 2);
+        pnlDatosContainer.Size = new Size(880, 128);
+        pnlDatosContainer.TabIndex = 2;
+        // 
+        // grpDatos
+        // 
+        grpDatos.BackColor = SystemColors.Control;
+        grpDatos.Controls.Add(lblNombre);
+        grpDatos.Controls.Add(txtNombre);
+        grpDatos.Controls.Add(lblDescripcion);
+        grpDatos.Controls.Add(txtDescripcion);
+        grpDatos.Dock = DockStyle.Fill;
+        grpDatos.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        grpDatos.ForeColor = Color.Black;
+        grpDatos.Location = new Point(8, 2);
+        grpDatos.Name = "grpDatos";
+        grpDatos.Size = new Size(864, 124);
+        grpDatos.TabIndex = 0;
+        grpDatos.TabStop = false;
+        grpDatos.Text = "Datos de la Marca";
         // 
         // lblNombre
         // 
         lblNombre.AutoSize = true;
-        lblNombre.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-        lblNombre.ForeColor = Color.FromArgb(51, 65, 85);
-        lblNombre.Location = new Point(16, 20);
+        lblNombre.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        lblNombre.ForeColor = Color.Black;
+        lblNombre.Location = new Point(12, 26);
         lblNombre.Name = "lblNombre";
-        lblNombre.Size = new Size(54, 15);
+        lblNombre.Size = new Size(57, 15);
         lblNombre.TabIndex = 0;
         lblNombre.Text = "Nombre:";
         // 
         // txtNombre
         // 
-        txtNombre.Font = new Font("Segoe UI", 9.5F);
-        txtNombre.Location = new Point(16, 40);
+        txtNombre.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        txtNombre.BackColor = SystemColors.Window;
+        txtNombre.BorderStyle = BorderStyle.FixedSingle;
+        txtNombre.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
+        txtNombre.Location = new Point(98, 23);
         txtNombre.Name = "txtNombre";
-        txtNombre.Size = new Size(280, 24);
+        txtNombre.Size = new Size(752, 23);
         txtNombre.TabIndex = 1;
         // 
         // lblDescripcion
         // 
         lblDescripcion.AutoSize = true;
-        lblDescripcion.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-        lblDescripcion.ForeColor = Color.FromArgb(51, 65, 85);
-        lblDescripcion.Location = new Point(16, 80);
+        lblDescripcion.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        lblDescripcion.ForeColor = Color.Black;
+        lblDescripcion.Location = new Point(12, 62);
         lblDescripcion.Name = "lblDescripcion";
-        lblDescripcion.Size = new Size(73, 15);
+        lblDescripcion.Size = new Size(76, 15);
         lblDescripcion.TabIndex = 2;
         lblDescripcion.Text = "Descripción:";
         // 
         // txtDescripcion
         // 
-        txtDescripcion.Font = new Font("Segoe UI", 9.5F);
-        txtDescripcion.Location = new Point(16, 100);
+        txtDescripcion.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        txtDescripcion.BackColor = SystemColors.Window;
+        txtDescripcion.BorderStyle = BorderStyle.FixedSingle;
+        txtDescripcion.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
+        txtDescripcion.Location = new Point(98, 60);
         txtDescripcion.Multiline = true;
         txtDescripcion.Name = "txtDescripcion";
-        txtDescripcion.Size = new Size(280, 80);
+        txtDescripcion.Size = new Size(752, 45);
         txtDescripcion.TabIndex = 3;
+        // 
+        // pnlAcciones
+        // 
+        pnlAcciones.BackColor = SystemColors.Control;
+        pnlAcciones.Controls.Add(btnNuevo);
+        pnlAcciones.Controls.Add(btnGuardar);
+        pnlAcciones.Controls.Add(btnCancelar);
+        pnlAcciones.Dock = DockStyle.Top;
+        pnlAcciones.Location = new Point(0, 196);
+        pnlAcciones.Name = "pnlAcciones";
+        pnlAcciones.Size = new Size(880, 38);
+        pnlAcciones.TabIndex = 3;
         // 
         // btnNuevo
         // 
-        btnNuevo.BackColor = SystemColors.ActiveBorder;
-        btnNuevo.Location = new Point(16, 200);
+        btnNuevo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        btnNuevo.BackColor = Color.FromArgb(224, 247, 250);
+        btnNuevo.FlatStyle = FlatStyle.Standard;
+        btnNuevo.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        btnNuevo.ForeColor = Color.Black;
+        btnNuevo.Location = new Point(545, 5);
         btnNuevo.Name = "btnNuevo";
-        btnNuevo.Size = new Size(85, 34);
-        btnNuevo.TabIndex = 4;
+        btnNuevo.Size = new Size(105, 28);
+        btnNuevo.TabIndex = 0;
         btnNuevo.Text = "Nuevo";
         btnNuevo.UseVisualStyleBackColor = false;
         btnNuevo.Click += BtnNuevo_Click;
         // 
         // btnGuardar
         // 
-        btnGuardar.BackColor = Color.MediumSpringGreen;
-        btnGuardar.Location = new Point(107, 200);
+        btnGuardar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        btnGuardar.BackColor = Color.FromArgb(232, 245, 233);
+        btnGuardar.FlatStyle = FlatStyle.Standard;
+        btnGuardar.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        btnGuardar.ForeColor = Color.Black;
+        btnGuardar.Location = new Point(656, 5);
         btnGuardar.Name = "btnGuardar";
-        btnGuardar.Size = new Size(95, 34);
-        btnGuardar.TabIndex = 5;
+        btnGuardar.Size = new Size(105, 28);
+        btnGuardar.TabIndex = 1;
         btnGuardar.Text = "Guardar";
         btnGuardar.UseVisualStyleBackColor = false;
         btnGuardar.Click += BtnGuardar_Click;
         // 
         // btnCancelar
         // 
-        btnCancelar.BackColor = SystemColors.ActiveBorder;
-        btnCancelar.Location = new Point(208, 200);
+        btnCancelar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        btnCancelar.BackColor = Color.FromArgb(255, 235, 238);
+        btnCancelar.FlatStyle = FlatStyle.Standard;
+        btnCancelar.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        btnCancelar.ForeColor = Color.Black;
+        btnCancelar.Location = new Point(767, 5);
         btnCancelar.Name = "btnCancelar";
-        btnCancelar.Size = new Size(88, 34);
-        btnCancelar.TabIndex = 6;
-        btnCancelar.Text = "Limpiar";
+        btnCancelar.Size = new Size(105, 28);
+        btnCancelar.TabIndex = 2;
+        btnCancelar.Text = "Cancelar";
         btnCancelar.UseVisualStyleBackColor = false;
         btnCancelar.Click += BtnCancelar_Click;
         // 
+        // pnlListaContainer
+        // 
+        pnlListaContainer.BackColor = SystemColors.Control;
+        pnlListaContainer.Controls.Add(grpLista);
+        pnlListaContainer.Dock = DockStyle.Fill;
+        pnlListaContainer.Location = new Point(0, 234);
+        pnlListaContainer.Name = "pnlListaContainer";
+        pnlListaContainer.Padding = new Padding(8, 2, 8, 8);
+        pnlListaContainer.Size = new Size(880, 346);
+        pnlListaContainer.TabIndex = 4;
+        // 
+        // grpLista
+        // 
+        grpLista.BackColor = SystemColors.Control;
+        grpLista.Controls.Add(dgvMarcas);
+        grpLista.Dock = DockStyle.Fill;
+        grpLista.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        grpLista.ForeColor = Color.Black;
+        grpLista.Location = new Point(8, 2);
+        grpLista.Name = "grpLista";
+        grpLista.Padding = new Padding(8);
+        grpLista.Size = new Size(864, 336);
+        grpLista.TabIndex = 0;
+        grpLista.TabStop = false;
+        grpLista.Text = "Lista de Marcas";
+        // 
         // dgvMarcas
         // 
+        dgvMarcas.AllowUserToAddRows = false;
+        dgvMarcas.AllowUserToDeleteRows = false;
+        dgvMarcas.AllowUserToResizeRows = false;
+        dgvMarcas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        dgvMarcas.BackgroundColor = Color.White;
+        dgvMarcas.BorderStyle = BorderStyle.FixedSingle;
+        dgvHeaderStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+        dgvHeaderStyle.BackColor = SystemColors.Control;
+        dgvHeaderStyle.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        dgvHeaderStyle.ForeColor = Color.Black;
+        dgvHeaderStyle.SelectionBackColor = SystemColors.Highlight;
+        dgvHeaderStyle.SelectionForeColor = SystemColors.HighlightText;
+        dgvHeaderStyle.WrapMode = DataGridViewTriState.True;
+        dgvMarcas.ColumnHeadersDefaultCellStyle = dgvHeaderStyle;
+        dgvMarcas.ColumnHeadersHeight = 26;
+        dgvCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+        dgvCellStyle.BackColor = SystemColors.Window;
+        dgvCellStyle.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
+        dgvCellStyle.ForeColor = Color.Black;
+        dgvCellStyle.SelectionBackColor = SystemColors.Highlight;
+        dgvCellStyle.SelectionForeColor = SystemColors.HighlightText;
+        dgvCellStyle.WrapMode = DataGridViewTriState.False;
+        dgvMarcas.DefaultCellStyle = dgvCellStyle;
         dgvMarcas.Dock = DockStyle.Fill;
-        dgvMarcas.Location = new Point(0, 126);
+        dgvMarcas.EnableHeadersVisualStyles = true;
+        dgvMarcas.Location = new Point(8, 22);
+        dgvMarcas.MultiSelect = false;
         dgvMarcas.Name = "dgvMarcas";
-        dgvMarcas.Size = new Size(540, 435);
-        dgvMarcas.TabIndex = 3;
+        dgvMarcas.ReadOnly = true;
+        dgvMarcas.RowHeadersVisible = true;
+        dgvMarcas.RowHeadersWidth = 25;
+        dgvMarcas.RowTemplate.Height = 24;
+        dgvMarcas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        dgvMarcas.Size = new Size(848, 306);
+        dgvMarcas.TabIndex = 0;
         dgvMarcas.SelectionChanged += DgvMarcas_SelectionChanged;
-        // 
-        // pictureBox1
-        // 
-        pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-        pictureBox1.Location = new Point(57, 9);
-        pictureBox1.Name = "pictureBox1";
-        pictureBox1.Size = new Size(85, 68);
-        pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-        pictureBox1.TabIndex = 1;
-        pictureBox1.TabStop = false;
         // 
         // FrmMarcas
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(860, 561);
-        Controls.Add(dgvMarcas);
-        Controls.Add(pnlDatos);
+        BackColor = SystemColors.Control;
+        ClientSize = new Size(880, 580);
+        Controls.Add(pnlListaContainer);
+        Controls.Add(pnlAcciones);
+        Controls.Add(pnlDatosContainer);
         Controls.Add(pnlFiltro);
         Controls.Add(pnlTop);
         Name = "FrmMarcas";
@@ -238,13 +328,15 @@ partial class FrmMarcas
         Load += FrmMarcas_Load;
         ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
         pnlTop.ResumeLayout(false);
-        pnlTop.PerformLayout();
         pnlFiltro.ResumeLayout(false);
         pnlFiltro.PerformLayout();
-        pnlDatos.ResumeLayout(false);
-        pnlDatos.PerformLayout();
+        pnlDatosContainer.ResumeLayout(false);
+        grpDatos.ResumeLayout(false);
+        grpDatos.PerformLayout();
+        pnlAcciones.ResumeLayout(false);
+        pnlListaContainer.ResumeLayout(false);
+        grpLista.ResumeLayout(false);
         ((System.ComponentModel.ISupportInitialize)dgvMarcas).EndInit();
-        ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
         ResumeLayout(false);
     }
 
@@ -254,17 +346,19 @@ partial class FrmMarcas
     private Panel pnlTop;
     private Label lblTitulo;
     private Panel pnlFiltro;
-    private Label lblBuscar;
     private TextBox txtBuscar;
     private Button btnBuscar;
-    private Panel pnlDatos;
+    private Panel pnlDatosContainer;
+    private GroupBox grpDatos;
     private Label lblNombre;
     private TextBox txtNombre;
     private Label lblDescripcion;
     private TextBox txtDescripcion;
+    private Panel pnlAcciones;
     private Button btnNuevo;
     private Button btnGuardar;
     private Button btnCancelar;
+    private Panel pnlListaContainer;
+    private GroupBox grpLista;
     private DataGridView dgvMarcas;
-    private PictureBox pictureBox1;
 }

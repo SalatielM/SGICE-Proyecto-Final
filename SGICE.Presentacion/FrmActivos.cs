@@ -18,11 +18,6 @@ public partial class FrmActivos : Form
     public FrmActivos()
     {
         InitializeComponent();
-        UIHelper.EstilarDataGridView(dgvActivos);
-        UIHelper.EstilarBotonPrimario(btnGuardar);
-        UIHelper.EstilarBotonSecundario(btnNuevo);
-        UIHelper.EstilarBotonSecundario(btnCancelar);
-        UIHelper.EstilarBotonSecundario(btnBuscar);
     }
 
     private void FrmActivos_Load(object? sender, EventArgs e)
@@ -91,6 +86,12 @@ public partial class FrmActivos : Form
                 dgvActivos.Columns["PersonalEncargado"].HeaderText = "Encargado";
             if (dgvActivos.Columns["Estado"] != null)
                 dgvActivos.Columns["Estado"].HeaderText = "Estado";
+
+            foreach (var col in new[] { "CategoriaId", "SubCategoriaId", "ProveedorId", "MarcaId", "PersonalId", "DetalleId", "FechaCreacion", "FechaActualizacion", "UsuarioRegistroId", "UsuarioRegistro", "UsuarioActualizacionId", "UsuarioActualizacion", "EstadoId" })
+            {
+                if (dgvActivos.Columns[col] != null)
+                    dgvActivos.Columns[col].Visible = false;
+            }
         }
         catch (Exception ex)
         {

@@ -18,11 +18,6 @@ public partial class FrmEntradas : Form
     public FrmEntradas()
     {
         InitializeComponent();
-        UIHelper.EstilarDataGridView(dgvActivosFisicos);
-        UIHelper.EstilarBotonPrimario(btnProcesar);
-        UIHelper.EstilarBotonSecundario(btnLimpiar);
-        UIHelper.EstilarBotonSecundario(btnGenerar);
-        UIHelper.EstilarBotonPeligro(btnQuitar);
     }
 
     private void FrmEntradas_Load(object? sender, EventArgs e)
@@ -137,6 +132,7 @@ public partial class FrmEntradas : Form
         // Ocultar IDs
         if (dgvActivosFisicos.Columns["IdActivoFisico"] != null) dgvActivosFisicos.Columns["IdActivoFisico"].Visible = false;
         if (dgvActivosFisicos.Columns["ActivoId"] != null) dgvActivosFisicos.Columns["ActivoId"].Visible = false;
+        if (dgvActivosFisicos.Columns["CategoriaId"] != null) dgvActivosFisicos.Columns["CategoriaId"].Visible = false;
         if (dgvActivosFisicos.Columns["SubCategoriaId"] != null) dgvActivosFisicos.Columns["SubCategoriaId"].Visible = false;
         if (dgvActivosFisicos.Columns["MarcaId"] != null) dgvActivosFisicos.Columns["MarcaId"].Visible = false;
         if (dgvActivosFisicos.Columns["UbicacionId"] != null) dgvActivosFisicos.Columns["UbicacionId"].Visible = false;

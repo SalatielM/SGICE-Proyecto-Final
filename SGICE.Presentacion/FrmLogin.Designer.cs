@@ -17,207 +17,203 @@ partial class FrmLogin
 
     private void InitializeComponent()
     {
-        pnlHeader = new Panel();
-        lblSubtitulo = new Label();
-        lblTitulo = new Label();
-        pnlContenedor = new Panel();
-        lblMensaje = new Label();
-        btnCancelar = new Button();
-        btnIngresar = new Button();
-        txtClave = new TextBox();
-        lblClave = new Label();
-        txtUsuario = new TextBox();
-        lblUsuario = new Label();
+        pnlIzquierdo = new Panel();
         pictureBox1 = new PictureBox();
-        pnlHeader.SuspendLayout();
-        pnlContenedor.SuspendLayout();
+        lblTitulo = new Label();
+        pnlDerecho = new Panel();
+        picUsuario = new PictureBox();
+        lblUsuario = new Label();
+        txtUsuario = new TextBox();
+        lblClave = new Label();
+        txtClave = new TextBox();
+        lblMensaje = new Label();
+        btnIngresar = new Button();
+        btnCancelar = new Button();
+        pnlIzquierdo.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+        pnlDerecho.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize)picUsuario).BeginInit();
         SuspendLayout();
         // 
-        // pnlHeader
+        // pnlIzquierdo
         // 
-        pnlHeader.BackColor = Color.FromArgb(30, 41, 59);
-        pnlHeader.Controls.Add(lblSubtitulo);
-        pnlHeader.Controls.Add(lblTitulo);
-        pnlHeader.Dock = DockStyle.Top;
-        pnlHeader.Location = new Point(0, 0);
-        pnlHeader.Name = "pnlHeader";
-        pnlHeader.Size = new Size(678, 85);
-        pnlHeader.TabIndex = 0;
-        // 
-        // lblSubtitulo
-        // 
-        lblSubtitulo.AutoSize = true;
-        lblSubtitulo.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        lblSubtitulo.ForeColor = Color.FromArgb(148, 163, 184);
-        lblSubtitulo.Location = new Point(24, 50);
-        lblSubtitulo.Name = "lblSubtitulo";
-        lblSubtitulo.Size = new Size(351, 15);
-        lblSubtitulo.TabIndex = 1;
-        lblSubtitulo.Text = "Sistema de Gestión de Activos Inmuebles para centros educativos";
-        // 
-        // lblTitulo
-        // 
-        lblTitulo.AutoSize = true;
-        lblTitulo.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        lblTitulo.ForeColor = Color.White;
-        lblTitulo.Location = new Point(20, 12);
-        lblTitulo.Name = "lblTitulo";
-        lblTitulo.Size = new Size(98, 31);
-        lblTitulo.TabIndex = 0;
-        lblTitulo.Text = "SGICE";
-        // 
-        // pnlContenedor
-        // 
-        pnlContenedor.BackColor = Color.FromArgb(248, 250, 252);
-        pnlContenedor.Controls.Add(pictureBox1);
-        pnlContenedor.Controls.Add(lblMensaje);
-        pnlContenedor.Controls.Add(btnCancelar);
-        pnlContenedor.Controls.Add(btnIngresar);
-        pnlContenedor.Controls.Add(txtClave);
-        pnlContenedor.Controls.Add(lblClave);
-        pnlContenedor.Controls.Add(txtUsuario);
-        pnlContenedor.Controls.Add(lblUsuario);
-        pnlContenedor.Dock = DockStyle.Fill;
-        pnlContenedor.Location = new Point(0, 85);
-        pnlContenedor.Name = "pnlContenedor";
-        pnlContenedor.Padding = new Padding(28, 20, 28, 20);
-        pnlContenedor.Size = new Size(678, 376);
-        pnlContenedor.TabIndex = 1;
-        pnlContenedor.Paint += pnlContenedor_Paint;
-        // 
-        // lblMensaje
-        // 
-        lblMensaje.AutoSize = true;
-        lblMensaje.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        lblMensaje.ForeColor = Color.FromArgb(220, 38, 38);
-        lblMensaje.Location = new Point(28, 153);
-        lblMensaje.Name = "lblMensaje";
-        lblMensaje.Size = new Size(0, 13);
-        lblMensaje.TabIndex = 6;
-        lblMensaje.Visible = false;
-        // 
-        // btnCancelar
-        // 
-        btnCancelar.BackColor = Color.FromArgb(226, 232, 240);
-        btnCancelar.Cursor = Cursors.Hand;
-        btnCancelar.FlatAppearance.BorderSize = 0;
-        btnCancelar.FlatStyle = FlatStyle.Flat;
-        btnCancelar.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        btnCancelar.ForeColor = Color.FromArgb(51, 65, 85);
-        btnCancelar.Location = new Point(437, 203);
-        btnCancelar.Name = "btnCancelar";
-        btnCancelar.Size = new Size(115, 36);
-        btnCancelar.TabIndex = 5;
-        btnCancelar.Text = "Cancelar";
-        btnCancelar.UseVisualStyleBackColor = false;
-        btnCancelar.Click += BtnCancelar_Click;
-        // 
-        // btnIngresar
-        // 
-        btnIngresar.BackColor = Color.FromArgb(37, 99, 235);
-        btnIngresar.Cursor = Cursors.Hand;
-        btnIngresar.FlatAppearance.BorderSize = 0;
-        btnIngresar.FlatStyle = FlatStyle.Flat;
-        btnIngresar.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        btnIngresar.ForeColor = Color.White;
-        btnIngresar.Location = new Point(437, 157);
-        btnIngresar.Name = "btnIngresar";
-        btnIngresar.Size = new Size(115, 40);
-        btnIngresar.TabIndex = 4;
-        btnIngresar.Text = "Iniciar Sesión";
-        btnIngresar.UseVisualStyleBackColor = false;
-        btnIngresar.Click += BtnIngresar_Click;
-        // 
-        // txtClave
-        // 
-        txtClave.BorderStyle = BorderStyle.FixedSingle;
-        txtClave.Font = new Font("Segoe UI", 10.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        txtClave.ForeColor = Color.FromArgb(15, 23, 42);
-        txtClave.Location = new Point(418, 125);
-        txtClave.Name = "txtClave";
-        txtClave.Size = new Size(160, 26);
-        txtClave.TabIndex = 3;
-        txtClave.UseSystemPasswordChar = true;
-        // 
-        // lblClave
-        // 
-        lblClave.AutoSize = true;
-        lblClave.Font = new Font("Segoe UI", 9.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        lblClave.ForeColor = Color.FromArgb(51, 65, 85);
-        lblClave.Location = new Point(418, 105);
-        lblClave.Name = "lblClave";
-        lblClave.Size = new Size(81, 17);
-        lblClave.TabIndex = 2;
-        lblClave.Text = "Contraseña:";
-        // 
-        // txtUsuario
-        // 
-        txtUsuario.BorderStyle = BorderStyle.FixedSingle;
-        txtUsuario.Font = new Font("Segoe UI", 10.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        txtUsuario.ForeColor = Color.FromArgb(15, 23, 42);
-        txtUsuario.Location = new Point(418, 58);
-        txtUsuario.Name = "txtUsuario";
-        txtUsuario.Size = new Size(160, 26);
-        txtUsuario.TabIndex = 1;
-        // 
-        // lblUsuario
-        // 
-        lblUsuario.AutoSize = true;
-        lblUsuario.Font = new Font("Segoe UI", 9.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        lblUsuario.ForeColor = Color.FromArgb(51, 65, 85);
-        lblUsuario.Location = new Point(418, 38);
-        lblUsuario.Name = "lblUsuario";
-        lblUsuario.Size = new Size(59, 17);
-        lblUsuario.TabIndex = 0;
-        lblUsuario.Text = "Usuario:";
+        pnlIzquierdo.BackColor = Color.White;
+        pnlIzquierdo.Controls.Add(lblTitulo);
+        pnlIzquierdo.Controls.Add(pictureBox1);
+        pnlIzquierdo.Dock = DockStyle.Left;
+        pnlIzquierdo.Location = new Point(0, 0);
+        pnlIzquierdo.Name = "pnlIzquierdo";
+        pnlIzquierdo.Padding = new Padding(20);
+        pnlIzquierdo.Size = new Size(380, 460);
+        pnlIzquierdo.TabIndex = 0;
         // 
         // pictureBox1
         // 
         pictureBox1.Image = Properties.Resources.WhatsApp_Image_2026_11_25_at_10_22_28;
-        pictureBox1.Location = new Point(0, 0);
+        pictureBox1.Location = new Point(55, 58);
         pictureBox1.Name = "pictureBox1";
-        pictureBox1.Size = new Size(377, 364);
-        pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-        pictureBox1.TabIndex = 7;
+        pictureBox1.Size = new Size(270, 230);
+        pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+        pictureBox1.TabIndex = 0;
         pictureBox1.TabStop = false;
+        // 
+        // lblTitulo
+        // 
+        lblTitulo.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+        lblTitulo.ForeColor = Color.Black;
+        lblTitulo.Location = new Point(20, 305);
+        lblTitulo.Name = "lblTitulo";
+        lblTitulo.Size = new Size(340, 75);
+        lblTitulo.TabIndex = 1;
+        lblTitulo.Text = "SISTEMA DE GESTION DE INMOBILIARIOS PARA CENTROS EDUCATIVOS";
+        lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // pnlDerecho
+        // 
+        pnlDerecho.BackColor = Color.FromArgb(142, 177, 209);
+        pnlDerecho.Controls.Add(picUsuario);
+        pnlDerecho.Controls.Add(lblUsuario);
+        pnlDerecho.Controls.Add(txtUsuario);
+        pnlDerecho.Controls.Add(lblClave);
+        pnlDerecho.Controls.Add(txtClave);
+        pnlDerecho.Controls.Add(lblMensaje);
+        pnlDerecho.Controls.Add(btnIngresar);
+        pnlDerecho.Controls.Add(btnCancelar);
+        pnlDerecho.Dock = DockStyle.Fill;
+        pnlDerecho.Location = new Point(380, 0);
+        pnlDerecho.Name = "pnlDerecho";
+        pnlDerecho.Size = new Size(380, 460);
+        pnlDerecho.TabIndex = 1;
+        // 
+        // picUsuario
+        // 
+        picUsuario.Image = Properties.Resources.lider;
+        picUsuario.Location = new Point(140, 40);
+        picUsuario.Name = "picUsuario";
+        picUsuario.Size = new Size(100, 90);
+        picUsuario.SizeMode = PictureBoxSizeMode.Zoom;
+        picUsuario.TabIndex = 0;
+        picUsuario.TabStop = false;
+        // 
+        // lblUsuario
+        // 
+        lblUsuario.AutoSize = true;
+        lblUsuario.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        lblUsuario.ForeColor = Color.Black;
+        lblUsuario.Location = new Point(55, 155);
+        lblUsuario.Name = "lblUsuario";
+        lblUsuario.Size = new Size(54, 15);
+        lblUsuario.TabIndex = 1;
+        lblUsuario.Text = "Usuario:";
+        // 
+        // txtUsuario
+        // 
+        txtUsuario.BackColor = SystemColors.Window;
+        txtUsuario.BorderStyle = BorderStyle.FixedSingle;
+        txtUsuario.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
+        txtUsuario.Location = new Point(55, 175);
+        txtUsuario.Name = "txtUsuario";
+        txtUsuario.Size = new Size(270, 23);
+        txtUsuario.TabIndex = 2;
+        // 
+        // lblClave
+        // 
+        lblClave.AutoSize = true;
+        lblClave.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        lblClave.ForeColor = Color.Black;
+        lblClave.Location = new Point(55, 215);
+        lblClave.Name = "lblClave";
+        lblClave.Size = new Size(73, 15);
+        lblClave.TabIndex = 3;
+        lblClave.Text = "Contraseña:";
+        // 
+        // txtClave
+        // 
+        txtClave.BackColor = SystemColors.Window;
+        txtClave.BorderStyle = BorderStyle.FixedSingle;
+        txtClave.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
+        txtClave.Location = new Point(55, 235);
+        txtClave.Name = "txtClave";
+        txtClave.Size = new Size(270, 23);
+        txtClave.TabIndex = 4;
+        txtClave.UseSystemPasswordChar = true;
+        // 
+        // lblMensaje
+        // 
+        lblMensaje.AutoSize = true;
+        lblMensaje.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold);
+        lblMensaje.ForeColor = Color.DarkRed;
+        lblMensaje.Location = new Point(55, 270);
+        lblMensaje.MaximumSize = new Size(270, 0);
+        lblMensaje.Name = "lblMensaje";
+        lblMensaje.Size = new Size(0, 15);
+        lblMensaje.TabIndex = 5;
+        lblMensaje.Visible = false;
+        // 
+        // btnIngresar
+        // 
+        btnIngresar.BackColor = Color.FromArgb(232, 245, 233);
+        btnIngresar.FlatStyle = FlatStyle.Standard;
+        btnIngresar.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        btnIngresar.ForeColor = Color.Black;
+        btnIngresar.Location = new Point(55, 315);
+        btnIngresar.Name = "btnIngresar";
+        btnIngresar.Size = new Size(125, 28);
+        btnIngresar.TabIndex = 6;
+        btnIngresar.Text = "Iniciar";
+        btnIngresar.UseVisualStyleBackColor = false;
+        btnIngresar.Click += BtnIngresar_Click;
+        // 
+        // btnCancelar
+        // 
+        btnCancelar.BackColor = Color.FromArgb(255, 235, 238);
+        btnCancelar.FlatStyle = FlatStyle.Standard;
+        btnCancelar.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        btnCancelar.ForeColor = Color.Black;
+        btnCancelar.Location = new Point(200, 315);
+        btnCancelar.Name = "btnCancelar";
+        btnCancelar.Size = new Size(125, 28);
+        btnCancelar.TabIndex = 7;
+        btnCancelar.Text = "Salir";
+        btnCancelar.UseVisualStyleBackColor = false;
+        btnCancelar.Click += BtnCancelar_Click;
         // 
         // FrmLogin
         // 
         AcceptButton = btnIngresar;
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        BackColor = Color.White;
+        BackColor = SystemColors.Control;
         CancelButton = btnCancelar;
-        ClientSize = new Size(678, 461);
-        Controls.Add(pnlContenedor);
-        Controls.Add(pnlHeader);
+        ClientSize = new Size(760, 460);
+        Controls.Add(pnlDerecho);
+        Controls.Add(pnlIzquierdo);
         FormBorderStyle = FormBorderStyle.FixedDialog;
         MaximizeBox = false;
         MinimizeBox = false;
         Name = "FrmLogin";
         StartPosition = FormStartPosition.CenterScreen;
         Text = "SGICE - Inicio de Sesión";
-        pnlHeader.ResumeLayout(false);
-        pnlHeader.PerformLayout();
-        pnlContenedor.ResumeLayout(false);
-        pnlContenedor.PerformLayout();
+        pnlIzquierdo.ResumeLayout(false);
         ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+        pnlDerecho.ResumeLayout(false);
+        pnlDerecho.PerformLayout();
+        ((System.ComponentModel.ISupportInitialize)picUsuario).EndInit();
         ResumeLayout(false);
     }
 
     #endregion
 
-    private Panel pnlHeader;
+    private Panel pnlIzquierdo;
+    private PictureBox pictureBox1;
     private Label lblTitulo;
-    private Label lblSubtitulo;
-    private Panel pnlContenedor;
+    private Panel pnlDerecho;
+    private PictureBox picUsuario;
     private Label lblUsuario;
     private TextBox txtUsuario;
     private Label lblClave;
     private TextBox txtClave;
+    private Label lblMensaje;
     private Button btnIngresar;
     private Button btnCancelar;
-    private Label lblMensaje;
-    private PictureBox pictureBox1;
 }

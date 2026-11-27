@@ -21,11 +21,6 @@ public partial class FrmTraslados : Form
     public FrmTraslados()
     {
         InitializeComponent();
-        UIHelper.EstilarDataGridView(dgvDetalle);
-        UIHelper.EstilarBotonPrimario(btnProcesar);
-        UIHelper.EstilarBotonSecundario(btnLimpiar);
-        UIHelper.EstilarBotonSecundario(btnAgregar);
-        UIHelper.EstilarBotonPeligro(btnQuitar);
     }
 
     private void FrmTraslados_Load(object? sender, EventArgs e)
@@ -182,8 +177,12 @@ public partial class FrmTraslados : Form
             dgvDetalle.Columns["UbicacionFinal"].HeaderText = "Destino";
 
         // Ocultar llaves
+        if (dgvDetalle.Columns["IdDetalleMovimiento"] != null) dgvDetalle.Columns["IdDetalleMovimiento"].Visible = false;
+        if (dgvDetalle.Columns["TrasladoId"] != null) dgvDetalle.Columns["TrasladoId"].Visible = false;
         if (dgvDetalle.Columns["ActivoFisicoId"] != null) dgvDetalle.Columns["ActivoFisicoId"].Visible = false;
         if (dgvDetalle.Columns["ActivoId"] != null) dgvDetalle.Columns["ActivoId"].Visible = false;
+        if (dgvDetalle.Columns["CategoriaId"] != null) dgvDetalle.Columns["CategoriaId"].Visible = false;
+        if (dgvDetalle.Columns["MarcaId"] != null) dgvDetalle.Columns["MarcaId"].Visible = false;
         if (dgvDetalle.Columns["UbicacionActualId"] != null) dgvDetalle.Columns["UbicacionActualId"].Visible = false;
         if (dgvDetalle.Columns["UbicacionFinalId"] != null) dgvDetalle.Columns["UbicacionFinalId"].Visible = false;
 
